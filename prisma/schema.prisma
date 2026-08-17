@@ -1,0 +1,338 @@
+// Prisma Schema for Educator Girls Hostel Management & Booking Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------------------------
+// Enums
+// -----------------------------------------------------------------------------
+enum UserRole {
+  ADMIN
+  RESIDENT
+  APPLICANT
+  PARENT
+  STAFF
+}
+
+enum RoomType {
+  SINGLE_EXECUTIVE
+  DOUBLE_SHARING
+  TRIPLE_SHARING
+  QUAD_SHARING
+  MASTER_SUITE
+}
+
+enum RoomStatus {
+  AVAILABLE
+  FULL
+  MAINTENANCE
+  RESERVED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  ACTIVE
+  CANCELLED
+  REJECTED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum MaintenanceCategory {
+  PLUMBING
+  ELECTRICAL
+  WIFI_INTERNET
+  FURNITURE
+  AIR_CONDITIONER
+  CLEANING
+  SECURITY
+  OTHER
+}
+
+enum PriorityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum MaintenanceStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum PassType {
+  DAY_OUT
+  NIGHT_STAY
+  VACATION_LEAVE
+}
+
+enum PassStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+// -----------------------------------------------------------------------------
+// User & Auth Models (NextAuth Compatible)
+// -----------------------------------------------------------------------------
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  hashedPassword String?
+  role          UserRole  @default(APPLICANT)
+  phone         String?
+  cnicNumber    String?   // National Identity Card for resident verify
+  emergencyContact String?
+  guardianName  String?
+  guardianPhone String?
+  address       String?
+  city          String?   @default("Peshawar")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  bookings      Booking[]
+  payments      Payment[]
+  maintenanceRequests MaintenanceRequest[]
+  gatePasses    GatePass[]
+  beds          Bed[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// -----------------------------------------------------------------------------
+// Hostel & Room Management Models
+// -----------------------------------------------------------------------------
+model HostelBranch {
+  id          String   @id @default(cuid())
+  name        String   @default("Educator Girls Hostel - Peshawar Main")
+  address     String   @default("University Road, near University of Peshawar, Peshawar")
+  city        String   @default("Peshawar")
+  contactPhone String  @default("+92 300 1234567")
+  contactEmail String  @default("info@educatorgirlshostel.pk")
+  description String?  @db.Text
+  
+  rooms       Room[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("hostel_branches")
+}
+
+model Room {
+  id            String      @id @default(cuid())
+  branchId      String
+  roomNumber    String      @unique
+  floor         Int         @default(1)
+  roomType      RoomType    @default(DOUBLE_SHARING)
+  capacity      Int         @default(2)
+  currentOccupancy Int      @default(0)
+  monthlyRentPKR Float
+  securityDepositPKR Float @default(10000)
+  status        RoomStatus  @default(AVAILABLE)
+  
+  // Amenities & Features
+  hasAc         Boolean     @default(true)
+  hasAttachedBath Boolean   @default(true)
+  hasBalcony    Boolean     @default(false)
+  hasStudyDesk  Boolean     @default(true)
+  hasWifi       Boolean     @default(true)
+  
+  images        String[]    @default([])
+  description   String?     @db.Text
+
+  branch        HostelBranch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  beds          Bed[]
+  bookings      Booking[]
+  maintenance   MaintenanceRequest[]
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@map("rooms")
+}
+
+model Bed {
+  id          String   @id @default(cuid())
+  roomId      String
+  bedNumber   String   // e.g., "A", "B", "1", "2"
+  isOccupied  Boolean  @default(false)
+  residentId  String?  @unique
+
+  room        Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  resident    User?    @relation(fields: [residentId], references: [id], onDelete: SetNull)
+  bookings    Booking[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("beds")
+}
+
+// -----------------------------------------------------------------------------
+// Booking & Payments
+// -----------------------------------------------------------------------------
+model Booking {
+  id                String        @id @default(cuid())
+  userId            String
+  roomId            String
+  bedId             String?
+  checkInDate       DateTime
+  checkOutDate      DateTime?
+  monthlyRentPKR    Float
+  securityDepositPKR Float
+  totalAmountPKR    Float
+  status            BookingStatus @default(PENDING)
+  paymentStatus     PaymentStatus @default(PENDING)
+  notes             String?       @db.Text
+
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  room              Room          @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  bed               Bed?          @relation(fields: [bedId], references: [id], onDelete: SetNull)
+  payments          Payment[]
+
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@map("bookings")
+}
+
+model Payment {
+  id                    String        @id @default(cuid())
+  userId                String
+  bookingId             String?
+  stripePaymentIntentId String?       @unique
+  amountPKR             Float
+  currency              String        @default("PKR")
+  paymentMethod         String        @default("STRIPE")
+  status                PaymentStatus @default(PENDING)
+  forMonth              String?       // e.g., "August 2026"
+  receiptUrl            String?
+
+  user                  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  booking               Booking?      @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  @@map("payments")
+}
+
+// -----------------------------------------------------------------------------
+// Resident Management & Security Features
+// -----------------------------------------------------------------------------
+model MaintenanceRequest {
+  id          String              @id @default(cuid())
+  userId      String
+  roomId      String
+  category    MaintenanceCategory @default(OTHER)
+  title       String
+  description String              @db.Text
+  priority    PriorityLevel       @default(MEDIUM)
+  status      MaintenanceStatus   @default(OPEN)
+  resolvedAt  DateTime?
+
+  user        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  room        Room                @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@map("maintenance_requests")
+}
+
+model GatePass {
+  id             String     @id @default(cuid())
+  userId         String
+  passType       PassType   @default(DAY_OUT)
+  departureTime  DateTime
+  expectedReturn DateTime
+  actualReturn   DateTime?
+  reason         String
+  destination    String
+  guardianPhone  String
+  status         PassStatus @default(PENDING)
+  approvedBy     String?    // Admin User ID
+
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@map("gate_passes")
+}
+
+model Announcement {
+  id          String        @id @default(cuid())
+  title       String
+  content     String        @db.Text
+  priority    PriorityLevel @default(MEDIUM)
+  targetRole  UserRole?
+  isPublished Boolean       @default(true)
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("announcements")
+}
