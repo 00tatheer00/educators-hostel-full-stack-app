@@ -18,6 +18,7 @@ import {
   Users, 
   Phone, 
   ChevronRight,
+  ChevronDown,
   Heart,
   FileCheck,
   Coffee,
@@ -50,8 +51,10 @@ import {
   BookshelfDoodle, 
   CactusPlantDoodle, 
   MultiLayerWaveTop, 
-  MultiLayerWaveBottom 
+  MultiLayerWaveBottom,
+  ArchitecturalLuxuryArches
 } from "@/components/decorative/DoodleVectors";
+import { Option5CelestialBackground } from "@/components/decorative/Option5CelestialBackground";
 
 export default function HomePage() {
   const { t, language } = useLanguage();
@@ -61,10 +64,31 @@ export default function HomePage() {
   const [selectedDay, setSelectedDay] = useState("Monday");
   const [stayDuration, setStayDuration] = useState("6");
   const [selectedRoomType, setSelectedRoomType] = useState("double-deluxe");
+  const [isRoomDropdownOpen, setIsRoomDropdownOpen] = useState(false);
+  const [isDurationDropdownOpen, setIsDurationDropdownOpen] = useState(false);
   const [activeGalleryTab, setActiveGalleryTab] = useState("all");
   const [selectedRoomFilter, setSelectedRoomFilter] = useState("ALL");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+
+  // Option 3: Interactive Mouse Tracking Glow State
+  const [mousePos, setMousePos] = useState({ x: 600, y: 300 });
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+
+  const handleHeroMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const DURATION_OPTIONS = [
+    { value: "1", label: "1 Month (Flexible)", badge: "Monthly", desc: "Short-term trial stay" },
+    { value: "3", label: "3 Months (Semester)", badge: "Semester", desc: "Exam & academic session" },
+    { value: "6", label: "6 Months (Half Year)", badge: "Popular", desc: "Most chosen by students" },
+    { value: "12", label: "12 Months (Full Year)", badge: "Best Value", desc: "Long term guaranteed bed" },
+  ];
 
   // 7-Day Delicious Mess Menu
   const weeklyMenu: Record<string, { breakfast: string; lunch: string; dinner: string; special: string }> = {
@@ -236,37 +260,41 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden selection:bg-pink-500 selection:text-white">
       {/* -------------------------------------------------------------------- */}
-      {/* 1. HERO SECTION (Refined, Proportional & Modern Luxury Showcase)    */}
+      {/* 1. HERO SECTION (Option 5: Celestial 3D Gyroscope & Prismatic Plasma) */}
       {/* -------------------------------------------------------------------- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-950 to-slate-900 text-white pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
-        {/* Ambient Glowing Orbs */}
-        <div className="absolute top-8 left-10 w-72 h-72 bg-pink-500/15 rounded-full blur-3xl pointer-events-none animate-float" />
-        <div className="absolute bottom-8 right-10 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none animate-float-reverse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Decorative Vector Doodles floating in background (Subtle & Elegant) */}
-        <div className="absolute top-6 right-10 hidden lg:block opacity-60">
-          <SquiggleWave color="#FF1E7A" width={100} height={20} className="animate-pulse" />
-        </div>
-        <div className="absolute top-16 left-6 hidden lg:block opacity-40">
-          <PolkaDotGrid rows={3} cols={4} dotColor="bg-cyan-400/30" />
-        </div>
+      <section className="relative overflow-hidden bg-slate-950 text-white pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
+        {/* Advanced Celestial Background with 3D Gyroscope, Kinetic Waves & Plasma Blobs */}
+        <Option5CelestialBackground />
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center z-10">
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-            {/* Saturated Announcement Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-pink-500/15 via-indigo-500/15 to-teal-500/15 border border-pink-400/40 text-pink-300 backdrop-blur-md shadow-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
-              </span>
-              <span className="text-[11px] font-bold tracking-wider uppercase text-white">
-                ★ Peshawar&apos;s Premier Female Hostel
-              </span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-pink-600 text-white font-bold">
-                Fall 2026 Open
-              </span>
+          <div className="lg:col-span-7 space-y-5 text-center lg:text-left z-10">
+            {/* Top Row with Saturated Announcement Pill & 3D Floating Security Chip */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              {/* Saturated Announcement Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-pink-500/15 via-indigo-500/15 to-teal-500/15 border border-pink-400/40 text-pink-300 backdrop-blur-md shadow-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                </span>
+                <span className="text-[11px] font-bold tracking-wider uppercase text-white">
+                  ★ Peshawar&apos;s Premier Female Hostel
+                </span>
+                <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-pink-600 text-white font-bold">
+                  Fall 2026 Open
+                </span>
+              </div>
+
+              {/* Prominent 3D Floating Chip 1: Biometric Female Security */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900/90 border-2 border-pink-500/60 shadow-[0_6px_20px_rgba(236,72,153,0.35)] backdrop-blur-2xl text-white animate-orbit-1 hover:scale-105 transition-all">
+                <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-pink-600 to-rose-500 flex items-center justify-center text-white shadow-sm">
+                  <ShieldCheck className="w-3 h-3 text-white" />
+                </div>
+                <span className="text-[11px] font-bold text-slate-100">100% Female Safe</span>
+                <span className="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Biometrics
+                </span>
+              </div>
             </div>
 
             {/* Main Punchy Display Headline (Proportional & Clean) */}
@@ -303,6 +331,19 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Prominent 3D Floating Chip 3: 3-Time Gourmet Mess Ribbon */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900/90 border-2 border-amber-400/60 shadow-[0_6px_20px_rgba(251,191,36,0.3)] backdrop-blur-2xl text-white animate-orbit-2 hover:scale-105 transition-all">
+                <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-sm">
+                  <Utensils className="w-3 h-3 text-white" />
+                </div>
+                <span className="text-[11px] font-bold text-slate-100">3x Daily Fresh Mess Included</span>
+                <span className="text-[9px] font-bold text-pink-300 bg-pink-500/15 px-1.5 py-0.2 rounded border border-pink-500/30">
+                  Nutritious
+                </span>
+              </div>
+            </div>
+
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
               <Link href="/rooms">
@@ -329,98 +370,288 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Right Visual Showcase & Live Rent Estimator Card */}
-          <div className="lg:col-span-5 space-y-4 relative">
-            {/* Main Visual Image Card */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-black/60 border border-pink-500/30 group bg-slate-900">
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                <Image
-                  src="/images/hostel-room-luxury.jpg"
-                  alt="Educator Girls Hostel Peshawar Luxury Suite"
-                  fill
-                  priority
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
-                
-                {/* Floating Badges on Photo */}
-                <div className="absolute top-3 right-3 z-10">
-                  <span className="px-2.5 py-1 rounded-full bg-slate-900/80 border border-white/20 text-white font-semibold text-[11px] backdrop-blur-md flex items-center gap-1 shadow-md">
-                    ⭐ 4.9/5 (120+ Reviews)
+          {/* Hero Right Visual Showcase & Live Rent Estimator (Unified Luxury Card) */}
+          <div className="lg:col-span-5 relative z-10">
+            {/* Prominent 3D Floating Chip 2: Power / Load Shedding (Top-Right Floating) */}
+            <div className="absolute -top-3.5 -right-2 sm:-top-4 sm:-right-3 z-30 flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900/95 border-2 border-teal-400/70 shadow-[0_8px_25px_rgba(20,184,166,0.35)] backdrop-blur-2xl text-white animate-orbit-2 hover:scale-105 transition-all">
+              <div className="w-4.5 h-4.5 rounded-md bg-gradient-to-tr from-teal-500 to-emerald-600 flex items-center justify-center text-white shadow-sm p-1">
+                <Zap className="w-3 h-3 text-white" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-100">Zero Load Shedding</span>
+              <span className="text-[8px] font-bold text-amber-300 bg-amber-400/15 px-1 py-0.2 rounded border border-amber-400/30">
+                24/7 ON
+              </span>
+            </div>
+
+            {/* Prominent 3D Floating Chip 4: Fiber Wi-Fi (Bottom-Left Floating) */}
+            <div className="absolute -bottom-3.5 -left-2 sm:-bottom-4 sm:-left-3 z-30 flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900/95 border-2 border-indigo-400/70 shadow-[0_8px_25px_rgba(99,102,241,0.35)] backdrop-blur-2xl text-white animate-orbit-1 hover:scale-105 transition-all">
+              <div className="w-4.5 h-4.5 rounded-md bg-gradient-to-tr from-indigo-500 to-cyan-500 flex items-center justify-center text-white shadow-sm p-1">
+                <Wifi className="w-3 h-3 text-white" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-100">50 Mbps Fiber Wi-Fi</span>
+              <span className="text-[8px] font-bold text-teal-300 bg-teal-500/15 px-1 py-0.2 rounded border border-teal-500/30">
+                Fast
+              </span>
+            </div>
+
+            {/* Unified Card Container with Ambient Glow */}
+            <div className="relative rounded-2xl sm:rounded-3xl border border-pink-500/30 bg-slate-900/90 backdrop-blur-2xl shadow-2xl overflow-hidden ring-1 ring-white/10 group">
+              {/* 1. Dynamic Room Showcase Photo */}
+              <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-950">
+                {(() => {
+                  const activeRoom = ROOMS_DATA.find((r) => r.id === selectedRoomType) || ROOMS_DATA[1];
+                  return (
+                    <>
+                      <Image
+                        src={activeRoom.images[0] || "/images/hostel-room-luxury.jpg"}
+                        alt={activeRoom.title}
+                        fill
+                        priority
+                        className="object-cover transition-all duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                      
+                      {/* Badges on Photo */}
+                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
+                        <span className="px-2.5 py-1 rounded-full bg-pink-600/90 text-white font-bold text-[10px] sm:text-[11px] backdrop-blur-md shadow-md flex items-center gap-1 border border-pink-400/30">
+                          <Sparkles className="w-3 h-3 text-amber-300" />
+                          <span>{activeRoom.badge}</span>
+                        </span>
+                        <span className="px-2.5 py-1 rounded-full bg-slate-950/80 border border-white/20 text-white font-semibold text-[10px] sm:text-[11px] backdrop-blur-md flex items-center gap-1 shadow-md">
+                          ⭐ 4.9/5 (120+ Reviews)
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <span className="text-[10px] text-amber-300 font-medium flex items-center gap-1">
+                            <MapPin className="w-3 h-3 text-pink-400" />
+                            <span>Main University Road, Peshawar</span>
+                          </span>
+                          <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                            <span>{activeRoom.availableBeds} Beds Left</span>
+                          </span>
+                        </div>
+                        <h3 className="text-sm sm:text-base font-bold font-serif text-white tracking-tight line-clamp-1">
+                          {activeRoom.title}
+                        </h3>
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+
+              {/* 2. Interactive Calculator Section with Custom Dropdowns */}
+              <div className="p-4 sm:p-5 space-y-3.5 bg-slate-900/95 border-t border-white/10">
+                <div className="flex items-center justify-between pb-1 border-b border-white/10">
+                  <span className="font-bold text-xs text-pink-300 flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 text-pink-400" />
+                    Instant Rent & Booking Estimator
+                  </span>
+                  <span className="text-[10px] text-slate-300 font-medium">
+                    Fall 2026 Batch
                   </span>
                 </div>
 
-                <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-teal-500 text-slate-950">
-                      Verified
-                    </span>
-                    <span className="text-[11px] text-amber-300 font-medium">
-                      Main University Road, Peshawar
+                {/* Custom Designed Dropdowns Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {/* Custom Dropdown 1: Room Type */}
+                  <div className="relative space-y-1">
+                    <label className="text-[10px] text-slate-300 font-medium flex items-center gap-1">
+                      <Bed className="w-3 h-3 text-pink-400" />
+                      <span>Select Room Type</span>
+                    </label>
+
+                    {(() => {
+                      const activeRoom = ROOMS_DATA.find((r) => r.id === selectedRoomType) || ROOMS_DATA[1];
+                      return (
+                        <div className="relative">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setIsRoomDropdownOpen(!isRoomDropdownOpen);
+                              setIsDurationDropdownOpen(false);
+                            }}
+                            className={`w-full h-10 rounded-xl bg-slate-950/90 border px-2.5 sm:px-3 flex items-center justify-between text-xs text-white transition-all shadow-inner group ${
+                              isRoomDropdownOpen ? "border-pink-500 ring-2 ring-pink-500/20" : "border-white/15 hover:border-white/30"
+                            }`}
+                          >
+                            <span className="font-medium truncate text-[11px] sm:text-xs">
+                              {activeRoom.title.replace(" Suite", "").replace(" Room", "")}
+                            </span>
+                            <div className="flex items-center gap-1 shrink-0 ml-1.5">
+                              <span className="text-[10px] font-bold text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20">
+                                {formatPKR(activeRoom.monthlyRentPKR)}
+                              </span>
+                              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isRoomDropdownOpen ? "rotate-180 text-pink-400" : ""}`} />
+                            </div>
+                          </button>
+
+                          {/* Custom Popover Menu for Room Types */}
+                          {isRoomDropdownOpen && (
+                            <>
+                              <div
+                                className="fixed inset-0 z-40"
+                                onClick={() => setIsRoomDropdownOpen(false)}
+                              />
+                              <div className="absolute left-0 right-0 bottom-full mb-2 z-50 rounded-xl bg-slate-950/98 border border-pink-500/30 shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                                <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-white/10">
+                                  Available Room Types
+                                </div>
+                                {ROOMS_DATA.map((room) => {
+                                  const isSelected = room.id === selectedRoomType;
+                                  return (
+                                    <button
+                                      key={room.id}
+                                      type="button"
+                                      onClick={() => {
+                                        setSelectedRoomType(room.id);
+                                        setIsRoomDropdownOpen(false);
+                                      }}
+                                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-center justify-between gap-2 ${
+                                        isSelected
+                                          ? "bg-pink-600/25 border border-pink-500/40 text-white font-semibold"
+                                          : "hover:bg-white/10 text-slate-300 hover:text-white"
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-2 truncate">
+                                        <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${isSelected ? "bg-pink-600 text-white" : "bg-white/10 text-slate-400"}`}>
+                                          <Bed className="w-3.5 h-3.5" />
+                                        </div>
+                                        <div className="truncate">
+                                          <p className="font-semibold text-white truncate text-[11px]">
+                                            {room.title}
+                                          </p>
+                                          <p className="text-[10px] text-slate-400 font-normal">
+                                            {room.capacity} Person • {room.badge}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div className="flex items-center gap-1.5 shrink-0">
+                                        <span className="font-bold text-amber-300 text-[11px] font-mono">
+                                          {formatPKR(room.monthlyRentPKR)}
+                                        </span>
+                                        {isSelected && <Check className="w-3.5 h-3.5 text-pink-400" />}
+                                      </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+
+                  {/* Custom Dropdown 2: Duration */}
+                  <div className="relative space-y-1">
+                    <label className="text-[10px] text-slate-300 font-medium flex items-center gap-1">
+                      <Calendar className="w-3 h-3 text-teal-400" />
+                      <span>Stay Duration</span>
+                    </label>
+
+                    {(() => {
+                      const activeDur = DURATION_OPTIONS.find((d) => d.value === stayDuration) || DURATION_OPTIONS[2];
+                      return (
+                        <div className="relative">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setIsDurationDropdownOpen(!isDurationDropdownOpen);
+                              setIsRoomDropdownOpen(false);
+                            }}
+                            className={`w-full h-10 rounded-xl bg-slate-950/90 border px-2.5 sm:px-3 flex items-center justify-between text-xs text-white transition-all shadow-inner group ${
+                              isDurationDropdownOpen ? "border-teal-500 ring-2 ring-teal-500/20" : "border-white/15 hover:border-white/30"
+                            }`}
+                          >
+                            <span className="font-medium truncate text-[11px] sm:text-xs">
+                              {activeDur.label}
+                            </span>
+                            <div className="flex items-center gap-1 shrink-0 ml-1.5">
+                              <span className="text-[10px] font-medium text-slate-300 bg-white/10 px-1.5 py-0.5 rounded">
+                                {activeDur.badge}
+                              </span>
+                              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isDurationDropdownOpen ? "rotate-180 text-teal-400" : ""}`} />
+                            </div>
+                          </button>
+
+                          {/* Custom Popover Menu for Duration */}
+                          {isDurationDropdownOpen && (
+                            <>
+                              <div
+                                className="fixed inset-0 z-40"
+                                onClick={() => setIsDurationDropdownOpen(false)}
+                              />
+                              <div className="absolute left-0 right-0 bottom-full mb-2 z-50 rounded-xl bg-slate-950/98 border border-teal-500/30 shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                                <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-white/10">
+                                  Select Stay Term
+                                </div>
+                                {DURATION_OPTIONS.map((opt) => {
+                                  const isSelected = opt.value === stayDuration;
+                                  return (
+                                    <button
+                                      key={opt.value}
+                                      type="button"
+                                      onClick={() => {
+                                        setStayDuration(opt.value);
+                                        setIsDurationDropdownOpen(false);
+                                      }}
+                                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-center justify-between gap-2 ${
+                                        isSelected
+                                          ? "bg-teal-600/25 border border-teal-500/40 text-white font-semibold"
+                                          : "hover:bg-white/10 text-slate-300 hover:text-white"
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-2">
+                                        <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${isSelected ? "bg-teal-600 text-white" : "bg-white/10 text-slate-400"}`}>
+                                          <Calendar className="w-3.5 h-3.5" />
+                                        </div>
+                                        <div>
+                                          <p className="font-semibold text-white text-[11px]">{opt.label}</p>
+                                          <p className="text-[10px] text-slate-400 font-normal">{opt.desc}</p>
+                                        </div>
+                                      </div>
+                                      <div className="flex items-center gap-1.5">
+                                        <span className="text-[10px] font-semibold text-teal-300 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-500/30">
+                                          {opt.badge}
+                                        </span>
+                                        {isSelected && <Check className="w-3.5 h-3.5 text-teal-400" />}
+                                      </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+                </div>
+
+                {/* 3. Monthly Rent Summary & 3D Reserve Action */}
+                <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-950/90 via-slate-950/90 to-pink-950/90 border border-pink-500/25 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5">
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] text-slate-300 font-medium">All-Inclusive Monthly Rent:</span>
+                      <span className="text-[9px] text-emerald-400 font-semibold bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-500/30">3x Mess Included</span>
+                    </div>
+                    <span className="text-lg sm:text-xl font-extrabold text-amber-300 font-mono tracking-tight">
+                      {formatPKR(estimate.monthly)} <span className="text-xs text-slate-400 font-sans font-normal">/ month</span>
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold font-serif mt-0.5 line-clamp-1">
-                    Executive Master Bedroom with Attached Bath
-                  </h3>
-                </div>
-              </div>
-            </div>
 
-            {/* Live Instant Rent Estimator Card */}
-            <div className="p-4 sm:p-4.5 rounded-2xl bg-slate-900/85 border border-indigo-500/30 backdrop-blur-xl shadow-xl space-y-3">
-              <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                <span className="font-bold text-xs text-pink-300 flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-pink-400" />
-                  Live Rent & Availability Estimator
-                </span>
-                <span className="text-[10px] text-teal-300 bg-teal-950/80 px-2 py-0.5 rounded-full border border-teal-500/30 font-medium">
-                  ● 4 Beds Remaining
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5">
-                <div className="space-y-1">
-                  <label className="text-[10px] text-slate-300 font-medium">Room Type</label>
-                  <select
-                    value={selectedRoomType}
-                    onChange={(e) => setSelectedRoomType(e.target.value)}
-                    className="w-full h-9 rounded-lg bg-slate-950/80 border border-white/15 px-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-pink-500"
-                  >
-                    <option value="single-exec">Single Executive Master</option>
-                    <option value="double-deluxe">Deluxe Double Sharing</option>
-                    <option value="triple-sharing">Triple Economy Sharing</option>
-                    <option value="quad-budget">Quad Student Sharing</option>
-                  </select>
+                  <Link href={`/booking?roomId=${selectedRoomType}&duration=${stayDuration}`} className="w-full sm:w-auto">
+                    <Button
+                      size="sm"
+                      className="w-full sm:w-auto font-bold text-xs h-9 px-4 rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white shadow-lg shadow-pink-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all border-t border-pink-400/30"
+                    >
+                      Reserve Now →
+                    </Button>
+                  </Link>
                 </div>
-
-                <div className="space-y-1">
-                  <label className="text-[10px] text-slate-300 font-medium">Duration</label>
-                  <select
-                    value={stayDuration}
-                    onChange={(e) => setStayDuration(e.target.value)}
-                    className="w-full h-9 rounded-lg bg-slate-950/80 border border-white/15 px-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-pink-500"
-                  >
-                    <option value="1">1 Month</option>
-                    <option value="3">3 Months (Semester)</option>
-                    <option value="6">6 Months (Half Year)</option>
-                    <option value="12">12 Months (Full Year)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-r from-indigo-950/90 to-pink-950/90 border border-pink-500/25 flex justify-between items-center">
-                <div>
-                  <span className="text-[9px] text-slate-300 block">Monthly Rent (3x Meals Included)</span>
-                  <span className="text-base sm:text-lg font-bold text-amber-300">{formatPKR(estimate.monthly)} / mo</span>
-                </div>
-                <Link href={`/booking?roomId=${selectedRoomType}&duration=${stayDuration}`}>
-                  <Button
-                    size="sm"
-                    className="font-bold text-xs h-8 px-3 rounded-lg bg-pink-600 hover:bg-pink-500 text-white shadow-md shadow-pink-600/30"
-                  >
-                    Reserve →
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/components/providers";
 import { FloatingWhatsApp } from "@/components/common/FloatingWhatsApp";
 
+import { GlobalMouseSpotlight } from "@/components/common/GlobalMouseSpotlight";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -39,6 +41,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="flex flex-col min-h-screen font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
         <Providers>
+          <GlobalMouseSpotlight />
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />

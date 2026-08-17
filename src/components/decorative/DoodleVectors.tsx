@@ -307,3 +307,79 @@ export function MultiLayerWaveBottom({
     </div>
   );
 }
+
+/**
+ * Royal Architectural Arches & Oriental Lattice Silhouette (Option 2)
+ */
+export function ArchitecturalLuxuryArches({ className = "" }: { className?: string }) {
+  return (
+    <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
+      <svg
+        className="w-full h-full opacity-35"
+        viewBox="0 0 1440 700"
+        fill="none"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="goldArchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#d4af37" stopOpacity="0.6" />
+            <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#d97706" stopOpacity="0.05" />
+          </linearGradient>
+          <linearGradient id="rubyArchGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.05" />
+          </linearGradient>
+        </defs>
+
+        {/* Outer Left Grand Arch */}
+        <path
+          d="M-80 700 V 320 C -80 140, 60 40, 260 40 C 460 40, 600 140, 600 320 V 700"
+          stroke="url(#goldArchGrad)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+        />
+        {/* Inner Left Pointed Arch */}
+        <path
+          d="M-20 700 V 350 C -20 200, 100 100, 260 100 C 420 100, 540 200, 540 350 V 700"
+          stroke="url(#goldArchGrad)"
+          strokeWidth="2"
+        />
+
+        {/* Center Portal Arch Silhouette */}
+        <path
+          d="M380 700 V 220 C 380 60, 520 -10, 720 -10 C 920 -10, 1060 60, 1060 220 V 700"
+          stroke="url(#rubyArchGrad)"
+          strokeWidth="2"
+        />
+        <path
+          d="M440 700 V 260 C 440 120, 560 50, 720 50 C 880 50, 1000 120, 1000 260 V 700"
+          stroke="url(#goldArchGrad)"
+          strokeWidth="1.5"
+          strokeDasharray="6 6"
+        />
+
+        {/* Outer Right Grand Arch */}
+        <path
+          d="M840 700 V 320 C 840 140, 980 40, 1180 40 C 1380 40, 1520 140, 1520 320 V 700"
+          stroke="url(#goldArchGrad)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+        />
+        {/* Inner Right Pointed Arch */}
+        <path
+          d="M900 700 V 350 C 900 200, 1020 100, 1180 100 C 1340 100, 1460 200, 1460 350 V 700"
+          stroke="url(#goldArchGrad)"
+          strokeWidth="2"
+        />
+
+        {/* Decorative Geometric Medallions / Octagons */}
+        <circle cx="260" cy="100" r="18" stroke="url(#goldArchGrad)" strokeWidth="1.5" />
+        <circle cx="720" cy="50" r="24" stroke="url(#goldArchGrad)" strokeWidth="2" />
+        <circle cx="1180" cy="100" r="18" stroke="url(#goldArchGrad)" strokeWidth="1.5" />
+      </svg>
+    </div>
+  );
+}
+
