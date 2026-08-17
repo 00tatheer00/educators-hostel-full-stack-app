@@ -236,144 +236,130 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden selection:bg-pink-500 selection:text-white">
       {/* -------------------------------------------------------------------- */}
-      {/* 1. HERO SECTION (High-Energy, Saturated Vector Doodles & Waves)       */}
+      {/* 1. HERO SECTION (Refined, Proportional & Modern Luxury Showcase)    */}
       {/* -------------------------------------------------------------------- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-950 to-slate-900 text-white pt-10 pb-20 px-4 sm:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-950 to-slate-900 text-white pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
         {/* Ambient Glowing Orbs */}
-        <div className="absolute top-12 left-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl pointer-events-none animate-float" />
-        <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-indigo-500/25 rounded-full blur-3xl pointer-events-none animate-float-reverse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-8 left-10 w-72 h-72 bg-pink-500/15 rounded-full blur-3xl pointer-events-none animate-float" />
+        <div className="absolute bottom-8 right-10 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none animate-float-reverse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Decorative Vector Doodles floating in background */}
-        <div className="absolute top-8 right-12 hidden lg:block opacity-80">
-          <SquiggleWave color="#FF1E7A" width={140} height={28} className="animate-pulse" />
+        {/* Decorative Vector Doodles floating in background (Subtle & Elegant) */}
+        <div className="absolute top-6 right-10 hidden lg:block opacity-60">
+          <SquiggleWave color="#FF1E7A" width={100} height={20} className="animate-pulse" />
         </div>
-        <div className="absolute top-24 left-8 hidden lg:block opacity-60">
-          <PolkaDotGrid rows={4} cols={5} dotColor="bg-cyan-400/40" />
-        </div>
-        <div className="absolute bottom-28 left-16 hidden lg:block opacity-70">
-          <CapsulePillBar color="from-pink-500 to-rose-500" width="w-32" height="h-4" rotate="-rotate-12" />
-        </div>
-        <div className="absolute bottom-36 right-20 hidden lg:block opacity-70">
-          <DoodleCrossMarks />
+        <div className="absolute top-16 left-6 hidden lg:block opacity-40">
+          <PolkaDotGrid rows={3} cols={4} dotColor="bg-cyan-400/30" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+        <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center z-10">
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
             {/* Saturated Announcement Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500/20 via-indigo-500/20 to-teal-500/20 border-2 border-pink-400/50 text-pink-300 backdrop-blur-xl shadow-lg shadow-pink-950/40">
-              <span className="relative flex h-2.5 w-2.5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-pink-500/15 via-indigo-500/15 to-teal-500/15 border border-pink-400/40 text-pink-300 backdrop-blur-md shadow-md">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
               </span>
-              <span className="text-xs font-black tracking-wider uppercase text-white">
-                ★ Peshawar&apos;s #1 Luxury Female Hostel
+              <span className="text-[11px] font-bold tracking-wider uppercase text-white">
+                ★ Peshawar&apos;s Premier Female Hostel
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-pink-600 text-white font-bold">
+              <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-pink-600 text-white font-bold">
                 Fall 2026 Open
               </span>
             </div>
 
-            {/* Main Punchy Display Headline */}
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-serif tracking-tight leading-[1.08] text-white">
+            {/* Main Punchy Display Headline (Proportional & Clean) */}
+            <div className="space-y-2">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-serif tracking-tight leading-[1.2] text-white">
                 Academic Peace, <br className="hidden sm:inline" />
-                <span className="highlight-pill-pink px-4 py-1 rounded-2xl mx-1 inline-block rotate-[-1.5deg] shadow-2xl">
-                  5-Star Safety
+                <span className="relative inline-block mx-1.5 my-1 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                  <span className="inline-block px-3.5 py-0.5 sm:px-4 sm:py-1 rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 text-white font-extrabold shadow-[0_5px_0_0_#9d174d,0_10px_20px_rgba(219,39,119,0.35)] border-t border-pink-400/40">
+                    5-Star Safety
+                  </span>
                 </span>
                 <br />
                 <span className="text-gradient-cyan">& Homely Comfort.</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed pt-2">
-                Peshawar&apos;s most prestigious hostel for medical interns, university students, and working women on <span className="text-amber-300 font-semibold underline decoration-wavy">Main University Road</span>. 100% female-supervised with 3-time nutritious mess meals and zero load shedding.
+              <p className="text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl font-normal leading-relaxed pt-1">
+                Peshawar&apos;s most prestigious hostel for medical interns, university students, and working women on <span className="text-amber-300 font-medium underline decoration-pink-500/50">Main University Road</span>. 100% female-supervised with 3-time nutritious mess meals and zero load shedding.
               </p>
             </div>
 
-            {/* Quick Metrics Bar with Saturated Badges */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-2 max-w-lg mx-auto lg:mx-0">
-              <div className="p-3.5 rounded-2xl bg-white/10 border-2 border-pink-500/30 backdrop-blur-xl hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl font-black text-pink-400 font-serif">100%</div>
-                <div className="text-[11px] text-slate-200 font-bold">Female Staff & Wardens</div>
+            {/* Quick Metrics Bar with Clean Cards */}
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1 max-w-lg mx-auto lg:mx-0">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-pink-500/20 backdrop-blur-md hover:bg-white/10 transition-all">
+                <div className="text-lg sm:text-xl font-extrabold text-pink-400 font-serif">100%</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Female Staff</div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/10 border-2 border-teal-500/30 backdrop-blur-xl hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl font-black text-teal-300 font-serif">24/7</div>
-                <div className="text-[11px] text-slate-200 font-bold">Biometrics & CCTV</div>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-teal-500/20 backdrop-blur-md hover:bg-white/10 transition-all">
+                <div className="text-lg sm:text-xl font-extrabold text-teal-300 font-serif">24/7</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Biometrics & CCTV</div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/10 border-2 border-amber-500/30 backdrop-blur-xl hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl font-black text-amber-300 font-serif">3x Daily</div>
-                <div className="text-[11px] text-slate-200 font-bold">Fresh Mess Meals</div>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-amber-500/20 backdrop-blur-md hover:bg-white/10 transition-all">
+                <div className="text-lg sm:text-xl font-extrabold text-amber-300 font-serif">3x Daily</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Fresh Mess Meals</div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
               <Link href="/rooms">
                 <Button
-                  size="lg"
-                  className="font-black text-sm px-8 h-14 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white shadow-2xl shadow-pink-500/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-white/30"
+                  size="default"
+                  className="font-bold text-xs sm:text-sm px-5 sm:px-6 h-10 sm:h-11 rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white shadow-lg shadow-pink-600/25 active:scale-95 transition-all"
                 >
-                  <Bed className="w-5 h-5 mr-2" />
+                  <Bed className="w-4 h-4 mr-1.5" />
                   Explore Luxury Rooms
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Button>
               </Link>
 
               <Link href="/amenities">
                 <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-white/30 hover:bg-white/15 text-white font-bold text-sm px-7 h-14 rounded-2xl backdrop-blur-xl hover:scale-105 transition-all"
+                  variant="ghost"
+                  size="default"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/40 font-semibold text-xs sm:text-sm px-4 sm:px-5 h-10 sm:h-11 rounded-xl backdrop-blur-md transition-all shadow-sm flex items-center"
                 >
-                  <ShieldCheck className="w-5 h-5 mr-2 text-teal-300" />
-                  View Facilities & Security
+                  <ShieldCheck className="w-4 h-4 mr-1.5 text-teal-300" />
+                  <span className="text-white font-semibold">Facilities & Security</span>
                 </Button>
               </Link>
             </div>
           </div>
 
           {/* Hero Right Visual Showcase & Live Rent Estimator Card */}
-          <div className="lg:col-span-5 space-y-6 relative">
-            {/* 360° Rotating Badge Ring Top Right */}
-            <div className="absolute -top-10 -right-6 z-20 hidden sm:block">
-              <RotatingBadgeRing size={120} />
-            </div>
-
-            {/* Doodle Lamp & Bookshelf Decor around visual */}
-            <div className="absolute -top-12 -left-6 z-20 hidden sm:block opacity-90">
-              <StudyLampDoodle className="text-cyan-400" stroke="#38BDF8" />
-            </div>
-
+          <div className="lg:col-span-5 space-y-4 relative">
             {/* Main Visual Image Card */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/80 border-2 border-pink-500/40 group bg-slate-900">
-              <div className="relative h-72 sm:h-80 w-full overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-black/60 border border-pink-500/30 group bg-slate-900">
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden">
                 <Image
                   src="/images/hostel-room-luxury.jpg"
                   alt="Educator Girls Hostel Peshawar Luxury Suite"
                   fill
                   priority
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                 
                 {/* Floating Badges on Photo */}
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="px-3 py-1.5 rounded-full bg-pink-600 text-white font-black text-xs shadow-lg flex items-center gap-1 border border-white/30 animate-pulse">
-                    ⭐ 4.9/5 Rating (120+ Reviews)
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="px-2.5 py-1 rounded-full bg-slate-900/80 border border-white/20 text-white font-semibold text-[11px] backdrop-blur-md flex items-center gap-1 shadow-md">
+                    ⭐ 4.9/5 (120+ Reviews)
                   </span>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 text-white">
+                <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-teal-500 text-slate-950">
-                      Verified Safety
+                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-teal-500 text-slate-950">
+                      Verified
                     </span>
-                    <span className="text-xs text-amber-300 font-semibold">
+                    <span className="text-[11px] text-amber-300 font-medium">
                       Main University Road, Peshawar
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold font-serif mt-1">
+                  <h3 className="text-sm sm:text-base font-bold font-serif mt-0.5 line-clamp-1">
                     Executive Master Bedroom with Attached Bath
                   </h3>
                 </div>
@@ -381,24 +367,24 @@ export default function HomePage() {
             </div>
 
             {/* Live Instant Rent Estimator Card */}
-            <div className="p-6 rounded-3xl bg-white/10 dark:bg-slate-900/90 border-2 border-indigo-500/40 backdrop-blur-2xl shadow-2xl space-y-4">
-              <div className="flex items-center justify-between border-b border-white/15 pb-3">
-                <span className="font-black text-sm text-pink-300 flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-pink-400 animate-pulse" />
+            <div className="p-4 sm:p-4.5 rounded-2xl bg-slate-900/85 border border-indigo-500/30 backdrop-blur-xl shadow-xl space-y-3">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
+                <span className="font-bold text-xs text-pink-300 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-pink-400" />
                   Live Rent & Availability Estimator
                 </span>
-                <span className="text-[11px] text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/40 font-bold">
+                <span className="text-[10px] text-teal-300 bg-teal-950/80 px-2 py-0.5 rounded-full border border-teal-500/30 font-medium">
                   ● 4 Beds Remaining
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5">
                 <div className="space-y-1">
-                  <label className="text-[11px] text-slate-300 font-bold">Select Room Type</label>
+                  <label className="text-[10px] text-slate-300 font-medium">Room Type</label>
                   <select
                     value={selectedRoomType}
                     onChange={(e) => setSelectedRoomType(e.target.value)}
-                    className="w-full h-11 rounded-2xl bg-slate-950/80 border border-white/20 px-3 text-xs text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full h-9 rounded-lg bg-slate-950/80 border border-white/15 px-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-pink-500"
                   >
                     <option value="single-exec">Single Executive Master</option>
                     <option value="double-deluxe">Deluxe Double Sharing</option>
@@ -408,11 +394,11 @@ export default function HomePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[11px] text-slate-300 font-bold">Stay Duration</label>
+                  <label className="text-[10px] text-slate-300 font-medium">Duration</label>
                   <select
                     value={stayDuration}
                     onChange={(e) => setStayDuration(e.target.value)}
-                    className="w-full h-11 rounded-2xl bg-slate-950/80 border border-white/20 px-3 text-xs text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full h-9 rounded-lg bg-slate-950/80 border border-white/15 px-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-pink-500"
                   >
                     <option value="1">1 Month</option>
                     <option value="3">3 Months (Semester)</option>
@@ -422,17 +408,17 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-indigo-950/80 to-pink-950/80 border border-pink-500/30 flex justify-between items-center">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-r from-indigo-950/90 to-pink-950/90 border border-pink-500/25 flex justify-between items-center">
                 <div>
-                  <span className="text-[10px] text-slate-300 block font-medium">Monthly Rent (3x Mess Included)</span>
-                  <span className="text-xl font-black text-amber-300">{formatPKR(estimate.monthly)} / mo</span>
+                  <span className="text-[9px] text-slate-300 block">Monthly Rent (3x Meals Included)</span>
+                  <span className="text-base sm:text-lg font-bold text-amber-300">{formatPKR(estimate.monthly)} / mo</span>
                 </div>
                 <Link href={`/booking?roomId=${selectedRoomType}&duration=${stayDuration}`}>
                   <Button
                     size="sm"
-                    className="font-black text-xs rounded-xl bg-pink-600 hover:bg-pink-700 text-white shadow-lg shadow-pink-600/30"
+                    className="font-bold text-xs h-8 px-3 rounded-lg bg-pink-600 hover:bg-pink-500 text-white shadow-md shadow-pink-600/30"
                   >
-                    Reserve Online →
+                    Reserve →
                   </Button>
                 </Link>
               </div>
