@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { gatePassStatusSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 
+export const dynamic = "force-dynamic";
+
 // PUT /api/gate-passes/[id]/status - Approve/Reject Gate Pass (Admin only)
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

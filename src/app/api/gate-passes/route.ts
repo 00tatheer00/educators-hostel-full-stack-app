@@ -4,6 +4,8 @@ import { gatePassCreateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { PassStatus, UserRole } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/gate-passes - Get Gate Passes
 export async function GET(req: NextRequest) {
   try {

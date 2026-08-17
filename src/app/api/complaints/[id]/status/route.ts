@@ -4,6 +4,8 @@ import { complaintStatusSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 import { MaintenanceStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // PUT /api/complaints/[id]/status - Update Ticket Status (Admin only)
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

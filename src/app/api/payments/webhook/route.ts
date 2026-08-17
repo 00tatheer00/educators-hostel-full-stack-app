@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { PaymentStatus, BookingStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // POST /api/payments/webhook - Stripe Webhook Handler
 export async function POST(req: NextRequest) {
   try {

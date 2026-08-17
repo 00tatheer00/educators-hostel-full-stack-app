@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { residentUpdateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/admin/residents/[id] - Get Resident Details (Admin only)
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

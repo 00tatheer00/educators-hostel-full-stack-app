@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { UserRole } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/payments/history - Get Payment Records
 export async function GET(req: NextRequest) {
   try {

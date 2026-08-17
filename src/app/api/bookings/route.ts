@@ -4,6 +4,8 @@ import { bookingCreateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { BookingStatus, PaymentStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/bookings - Get Personal Bookings
 export async function GET(req: NextRequest) {
   try {

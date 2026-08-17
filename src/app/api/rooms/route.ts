@@ -4,6 +4,8 @@ import { roomCreateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 import { RoomType, RoomStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/rooms - Filtered & Paginated Room Catalog
 export async function GET(req: NextRequest) {
   try {

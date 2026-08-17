@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { BookingStatus, UserRole } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // DELETE /api/bookings/[id] - Cancel/Delete Booking
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

@@ -4,6 +4,8 @@ import { bookingStatusUpdateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 import { BookingStatus, UserRole } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // PUT /api/bookings/[id]/status - Update Status (Admin only)
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

@@ -5,6 +5,8 @@ import { registerSchema } from "@/lib/validations";
 import { apiSuccess, apiError } from "@/lib/api-auth";
 import { UserRole } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

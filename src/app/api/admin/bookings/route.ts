@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 import { BookingStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/admin/bookings - List All Bookings (Admin only)
 export async function GET(req: NextRequest) {
   try {

@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import { roomUpdateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAdmin } from "@/lib/api-auth";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/rooms/[id] - Get Single Room Details
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

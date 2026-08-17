@@ -4,6 +4,8 @@ import { forgotPasswordSchema } from "@/lib/validations";
 import { apiSuccess, apiError } from "@/lib/api-auth";
 import crypto from "crypto";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

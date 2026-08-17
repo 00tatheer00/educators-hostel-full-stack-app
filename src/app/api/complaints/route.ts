@@ -4,6 +4,8 @@ import { complaintCreateSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { MaintenanceStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // GET /api/complaints - Get Personal Complaints
 export async function GET(req: NextRequest) {
   try {

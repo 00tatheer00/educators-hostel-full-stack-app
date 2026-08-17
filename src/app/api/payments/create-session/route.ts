@@ -5,6 +5,8 @@ import { paymentSessionSchema } from "@/lib/validations";
 import { apiSuccess, apiError, requireAuth } from "@/lib/api-auth";
 import { PaymentStatus } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 // POST /api/payments/create-session - Initialize Stripe Payment Intent
 export async function POST(req: NextRequest) {
   try {
