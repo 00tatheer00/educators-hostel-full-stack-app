@@ -251,396 +251,170 @@ export default function HomePage() {
       {/* -------------------------------------------------------------------- */}
       {/* 1. HERO SECTION (Celestial 3D Gold Gyroscope & Royal Black Canvas)   */}
       {/* -------------------------------------------------------------------- */}
-      <section className="relative overflow-hidden bg-[#070709] text-white pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
+      {/* -------------------------------------------------------------------- */}
+      {/* 1. HERO SECTION (Clean, Modern Black & Gold with 3D Illustration)    */}
+      {/* -------------------------------------------------------------------- */}
+      <section className="relative overflow-hidden bg-[#070709] text-white pt-8 sm:pt-14 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
         {/* Advanced Gold Celestial Background */}
         <Option5CelestialBackground />
 
-        <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center z-10">
+        <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center z-10">
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-5 text-center lg:text-left z-10">
-            {/* Top Row with Gold Announcement Pill & 3D Floating Security Chip */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-              {/* Luxury Gold Announcement Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 backdrop-blur-md shadow-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
-                </span>
-                <span className="text-[11px] font-bold tracking-wider uppercase text-amber-200">
-                  ★ Peshawar&apos;s Premier Female Hostel
-                </span>
-                <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-amber-500 text-slate-950 font-black">
-                  Fall 2026 Open
-                </span>
-              </div>
-
-              {/* 3D Floating Chip 1: Biometric Female Security */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-[#0d0d12]/90 border-2 border-amber-500/50 shadow-[0_6px_20px_rgba(212,175,55,0.25)] backdrop-blur-2xl text-white animate-orbit-1 hover:scale-105 transition-all">
-                <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 font-bold shadow-sm">
-                  <ShieldCheck className="w-3.5 h-3.5 text-slate-950" />
-                </div>
-                <span className="text-[11px] font-bold text-slate-100">100% Female Safe</span>
-                <span className="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                  Biometrics
-                </span>
-              </div>
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left z-10">
+            {/* Top Clean Gold Announcement Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 backdrop-blur-md shadow-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+              </span>
+              <span className="text-xs font-bold tracking-wider uppercase text-amber-200">
+                Peshawar&apos;s Premier Female Hostel
+              </span>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 font-black">
+                Fall 2026 Admissions Open
+              </span>
             </div>
 
             {/* Main Punchy Display Headline (Black & Gold) */}
-            <div className="space-y-2">
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-serif tracking-tight leading-[1.2] text-white">
-                Academic Peace, <br className="hidden sm:inline" />
-                <span className="relative inline-block mx-1.5 my-1 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                  <span className="inline-block px-3.5 py-0.5 sm:px-4 sm:py-1 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 font-black shadow-[0_5px_0_0_#78350f,0_10px_20px_rgba(212,175,55,0.35)] border-t border-yellow-200">
-                    5-Star Luxury
-                  </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold font-serif tracking-tight leading-[1.18] text-white">
+              Academic Peace, <br className="hidden sm:inline" />
+              <span className="relative inline-block my-1.5 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <span className="inline-block px-4 py-1 sm:px-5 sm:py-1.5 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 font-black shadow-[0_4px_0_0_#78350f,0_10px_25px_rgba(212,175,55,0.35)] border-t border-yellow-200">
+                  5-Star Luxury
                 </span>
-                <br />
-                <span className="text-gradient-gold-pure">& Homely Comfort.</span>
-              </h1>
+              </span>{" "}
+              <br className="sm:hidden" />
+              <span className="text-gradient-gold-pure">& Homely Comfort.</span>
+            </h1>
 
-              <p className="text-xs sm:text-sm md:text-base text-slate-300/90 max-w-xl font-normal leading-relaxed pt-1">
-                Peshawar&apos;s most prestigious hostel for medical interns, university students, and working women on <span className="text-amber-300 font-semibold underline decoration-amber-500/50">Main University Road</span>. 100% female-supervised with 3-time nutritious mess meals and zero load shedding.
-              </p>
+            {/* Concise, Professional Subtext */}
+            <p className="text-sm sm:text-base text-slate-300/90 max-w-xl font-normal leading-relaxed">
+              Peshawar&apos;s most trusted female residency for medical interns, university students, and working professionals on <span className="text-amber-300 font-semibold underline decoration-amber-500/50">Main University Road</span>. 100% female-managed with 3-time nutritious mess meals and zero load shedding.
+            </p>
+
+            {/* Clean Feature Badges Bar */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-amber-500/30 text-xs font-semibold text-slate-200 backdrop-blur-md">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                <span>100% Female Safe & Biometrics</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-amber-500/30 text-xs font-semibold text-slate-200 backdrop-blur-md">
+                <Utensils className="w-4 h-4 text-amber-400" />
+                <span>3x Daily Fresh Mess Included</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-amber-500/30 text-xs font-semibold text-slate-200 backdrop-blur-md">
+                <Zap className="w-4 h-4 text-amber-400" />
+                <span>24/7 Generator & Solar Power</span>
+              </div>
             </div>
 
-            {/* Quick Metrics Bar with Gold Accents */}
-            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1 max-w-lg mx-auto lg:mx-0">
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-slate-900/80 border border-amber-500/30 backdrop-blur-md hover:border-amber-400/60 transition-all shadow-md">
-                <div className="text-lg sm:text-xl font-extrabold text-amber-400 font-serif">100%</div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Female Staff</div>
-              </div>
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-slate-900/80 border border-amber-500/30 backdrop-blur-md hover:border-amber-400/60 transition-all shadow-md">
-                <div className="text-lg sm:text-xl font-extrabold text-amber-300 font-serif">24/7</div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Biometrics & CCTV</div>
-              </div>
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-slate-900/80 border border-amber-500/30 backdrop-blur-md hover:border-amber-400/60 transition-all shadow-md">
-                <div className="text-lg sm:text-xl font-extrabold text-yellow-300 font-serif">3x Daily</div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium">Fresh Mess Meals</div>
-              </div>
-            </div>
+            {/* Action Buttons & Trust Stats */}
+            <div className="pt-2 space-y-4">
+              <div className="flex flex-wrap gap-3.5 justify-center lg:justify-start items-center">
+                <Link href="/rooms">
+                  <Button
+                    size="lg"
+                    className="font-black text-xs sm:text-sm px-6 h-12 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-xl shadow-amber-500/25 active:scale-95 transition-all"
+                  >
+                    <Bed className="w-4 h-4 mr-2 text-slate-950" />
+                    Explore Luxury Rooms
+                    <ArrowRight className="w-4 h-4 ml-2 text-slate-950" />
+                  </Button>
+                </Link>
 
-            {/* 3D Floating Chip 3: 3-Time Gourmet Mess Ribbon */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-[#0d0d12]/90 border-2 border-amber-400/60 shadow-[0_6px_20px_rgba(251,191,36,0.25)] backdrop-blur-2xl text-white animate-orbit-2 hover:scale-105 transition-all">
-                <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 font-bold shadow-sm">
-                  <Utensils className="w-3 h-3 text-slate-950" />
+                <Link href="/amenities">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-slate-950/60 hover:bg-amber-500/10 text-white border border-amber-500/35 hover:border-amber-400/70 font-semibold text-xs sm:text-sm px-5 h-12 rounded-xl backdrop-blur-md transition-all shadow-sm flex items-center"
+                  >
+                    <ShieldCheck className="w-4 h-4 mr-2 text-amber-400" />
+                    <span className="text-white font-semibold">Facilities & Security</span>
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400 pt-1">
+                <div className="flex items-center gap-1">
+                  <span className="text-amber-400 font-bold">⭐ 4.9/5</span>
+                  <span>(150+ Reviews)</span>
                 </div>
-                <span className="text-[11px] font-bold text-slate-100">3x Daily Fresh Mess Included</span>
-                <span className="text-[9px] font-bold text-amber-300 bg-amber-500/20 px-1.5 py-0.2 rounded border border-amber-500/30">
-                  Nutritious
-                </span>
+                <span>•</span>
+                <div>
+                  <span className="text-white font-bold">500+</span> Alumni Students
+                </div>
+                <span>•</span>
+                <div>
+                  <span className="text-amber-300 font-medium">2-Min</span> to UoP & KMU
+                </div>
               </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-1">
-              <Link href="/rooms">
-                <Button
-                  size="default"
-                  className="font-black text-xs sm:text-sm px-5 sm:px-6 h-10 sm:h-11 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/25 active:scale-95 transition-all"
-                >
-                  <Bed className="w-4 h-4 mr-1.5 text-slate-950" />
-                  Explore Luxury Rooms
-                  <ArrowRight className="w-4 h-4 ml-1.5 text-slate-950" />
-                </Button>
-              </Link>
-
-              <Link href="/amenities">
-                <Button
-                  variant="outline"
-                  size="default"
-                  className="bg-black/50 hover:bg-amber-500/10 text-white border border-amber-500/35 hover:border-amber-400/70 font-semibold text-xs sm:text-sm px-4 sm:px-5 h-10 sm:h-11 rounded-xl backdrop-blur-md transition-all shadow-sm flex items-center"
-                >
-                  <ShieldCheck className="w-4 h-4 mr-1.5 text-amber-400" />
-                  <span className="text-white font-semibold">Facilities & Security</span>
-                </Button>
-              </Link>
             </div>
           </div>
 
-          {/* Hero Right Visual Showcase & Live Rent Estimator */}
+          {/* Hero Right: 3D Illustration Showcase Card */}
           <div className="lg:col-span-5 relative z-10">
-            {/* Prominent 3D Floating Chip 2: Power */}
-            <div className="absolute -top-3.5 -right-2 sm:-top-4 sm:-right-3 z-30 flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#0c0c10]/95 border-2 border-amber-400/70 shadow-[0_8px_25px_rgba(212,175,55,0.3)] backdrop-blur-2xl text-white animate-orbit-2 hover:scale-105 transition-all">
-              <div className="w-4.5 h-4.5 rounded-md bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-sm p-1">
-                <Zap className="w-3 h-3 text-slate-950 font-bold" />
-              </div>
-              <span className="text-[10px] sm:text-[11px] font-bold text-slate-100">Zero Load Shedding</span>
-              <span className="text-[8px] font-black text-slate-950 bg-amber-400 px-1 py-0.2 rounded">
-                24/7 ON
+            {/* Top Floating Badge */}
+            <div className="absolute -top-3 -right-2 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0c0c10]/95 border border-amber-400/60 shadow-[0_8px_25px_rgba(212,175,55,0.3)] backdrop-blur-2xl text-white">
+              <span className="text-xs font-bold text-amber-300">⭐ 4.9/5 Rating</span>
+              <span className="text-[9px] font-bold text-slate-950 bg-amber-400 px-1.5 py-0.2 rounded">
+                Verified
               </span>
             </div>
 
-            {/* Prominent 3D Floating Chip 4: Fiber Wi-Fi */}
-            <div className="absolute -bottom-3.5 -left-2 sm:-bottom-4 sm:-left-3 z-30 flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#0c0c10]/95 border-2 border-amber-400/70 shadow-[0_8px_25px_rgba(212,175,55,0.3)] backdrop-blur-2xl text-white animate-orbit-1 hover:scale-105 transition-all">
-              <div className="w-4.5 h-4.5 rounded-md bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-sm p-1">
-                <Wifi className="w-3 h-3 text-slate-950 font-bold" />
-              </div>
-              <span className="text-[10px] sm:text-[11px] font-bold text-slate-100">50 Mbps Fiber Wi-Fi</span>
-              <span className="text-[8px] font-black text-slate-950 bg-amber-400 px-1 py-0.2 rounded">
-                Fast
-              </span>
-            </div>
+            {/* Main 3D Illustration Card */}
+            <div className="relative rounded-3xl border border-amber-500/35 bg-[#0d0d12]/90 backdrop-blur-2xl shadow-2xl p-2.5 sm:p-3 overflow-hidden ring-1 ring-amber-400/20 group">
+              {/* 3D Render Image Container */}
+              <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-slate-950 border border-amber-500/20">
+                <Image
+                  src="/images/hostel-3d-illustration.jpg"
+                  alt="3D Luxury Female Student Hostel Room Illustration"
+                  fill
+                  priority
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-transparent to-transparent opacity-80" />
 
-            {/* Unified Card Container with Ambient Glow */}
-            <div className="relative rounded-2xl sm:rounded-3xl border border-amber-500/35 bg-[#0d0d12]/95 backdrop-blur-2xl shadow-2xl overflow-hidden ring-1 ring-amber-400/20 group">
-              {/* 1. Dynamic Room Showcase Photo */}
-              <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-950">
-                {(() => {
-                  const activeRoom = ROOMS_DATA.find((r) => r.id === selectedRoomType) || ROOMS_DATA[1];
-                  return (
-                    <>
-                      <Image
-                        src={activeRoom.images[0] || "/images/hostel-room-luxury.jpg"}
-                        alt={activeRoom.title}
-                        fill
-                        priority
-                        className="object-cover transition-all duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-slate-950/40 to-transparent" />
-                      
-                      {/* Badges on Photo */}
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
-                        <span className="px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black text-[10px] sm:text-[11px] backdrop-blur-md shadow-md flex items-center gap-1 border border-amber-300/40">
-                          <Crown className="w-3 h-3 text-slate-950" />
-                          <span>{activeRoom.badge}</span>
-                        </span>
-                        <span className="px-2.5 py-1 rounded-full bg-slate-950/85 border border-amber-500/30 text-amber-300 font-bold text-[10px] sm:text-[11px] backdrop-blur-md flex items-center gap-1 shadow-md">
-                          ⭐ 4.9/5 (120+ Reviews)
-                        </span>
-                      </div>
-
-                      <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
-                        <div className="flex items-center justify-between gap-2 mb-0.5">
-                          <span className="text-[10px] text-amber-300 font-medium flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-amber-400" />
-                            <span>Main University Road, Peshawar</span>
-                          </span>
-                          <span className="text-[10px] text-amber-300 font-bold bg-black/80 px-2 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-                            <span>{activeRoom.availableBeds} Beds Left</span>
-                          </span>
-                        </div>
-                        <h3 className="text-sm sm:text-base font-bold font-serif text-white tracking-tight line-clamp-1">
-                          {activeRoom.title}
-                        </h3>
-                      </div>
-                    </>
-                  );
-                })()}
-              </div>
-
-              {/* 2. Interactive Calculator Section with Custom Dropdowns */}
-              <div className="p-4 sm:p-5 space-y-3.5 bg-[#0a0a0e] border-t border-amber-500/20">
-                <div className="flex items-center justify-between pb-1 border-b border-amber-500/15">
-                  <span className="font-bold text-xs text-amber-300 flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                    Instant Rent & Booking Estimator
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-medium">
-                    Fall 2026 Batch
-                  </span>
+                {/* Badges on 3D Illustration */}
+                <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/85 border border-amber-500/40 text-amber-300 font-bold text-[10px] backdrop-blur-md shadow-md">
+                  <Crown className="w-3 h-3 text-amber-400" />
+                  <span>3D Sanctuary Suite</span>
                 </div>
 
-                {/* Custom Designed Dropdowns Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {/* Custom Dropdown 1: Room Type */}
-                  <div className="relative space-y-1">
-                    <label className="text-[10px] text-slate-300 font-medium flex items-center gap-1">
-                      <Bed className="w-3 h-3 text-amber-400" />
-                      <span>Select Room Type</span>
-                    </label>
-
-                    {(() => {
-                      const activeRoom = ROOMS_DATA.find((r) => r.id === selectedRoomType) || ROOMS_DATA[1];
-                      return (
-                        <div className="relative">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setIsRoomDropdownOpen(!isRoomDropdownOpen);
-                              setIsDurationDropdownOpen(false);
-                            }}
-                            className={`w-full h-10 rounded-xl bg-slate-950 border px-2.5 sm:px-3 flex items-center justify-between text-xs text-white transition-all shadow-inner group ${
-                              isRoomDropdownOpen ? "border-amber-400 ring-2 ring-amber-500/20" : "border-amber-500/30 hover:border-amber-400/60"
-                            }`}
-                          >
-                            <span className="font-medium truncate text-[11px] sm:text-xs">
-                              {activeRoom.title.replace(" Suite", "").replace(" Room", "")}
-                            </span>
-                            <div className="flex items-center gap-1 shrink-0 ml-1.5">
-                              <span className="text-[10px] font-bold text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/30">
-                                {formatPKR(activeRoom.monthlyRentPKR)}
-                              </span>
-                              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isRoomDropdownOpen ? "rotate-180 text-amber-400" : ""}`} />
-                            </div>
-                          </button>
-
-                          {/* Custom Popover Menu for Room Types */}
-                          {isRoomDropdownOpen && (
-                            <>
-                              <div
-                                className="fixed inset-0 z-40"
-                                onClick={() => setIsRoomDropdownOpen(false)}
-                              />
-                              <div className="absolute left-0 right-0 bottom-full mb-2 z-50 rounded-xl bg-[#0a0a0e] border border-amber-500/40 shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 animate-in fade-in zoom-in-95 duration-150">
-                                <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-400/80 border-b border-amber-500/20">
-                                  Available Room Types
-                                </div>
-                                {ROOMS_DATA.map((room) => {
-                                  const isSelected = room.id === selectedRoomType;
-                                  return (
-                                    <button
-                                      key={room.id}
-                                      type="button"
-                                      onClick={() => {
-                                        setSelectedRoomType(room.id);
-                                        setIsRoomDropdownOpen(false);
-                                      }}
-                                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-center justify-between gap-2 ${
-                                        isSelected
-                                          ? "bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold"
-                                          : "hover:bg-white/5 text-slate-300 hover:text-white"
-                                      }`}
-                                    >
-                                      <div className="flex items-center gap-2 truncate">
-                                        <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${isSelected ? "bg-amber-500 text-slate-950" : "bg-white/10 text-slate-400"}`}>
-                                          <Bed className="w-3.5 h-3.5" />
-                                        </div>
-                                        <div className="truncate">
-                                          <p className="font-semibold text-white truncate text-[11px]">
-                                            {room.title}
-                                          </p>
-                                          <p className="text-[10px] text-slate-400 font-normal">
-                                            {room.capacity} Person • {room.badge}
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div className="flex items-center gap-1.5 shrink-0">
-                                        <span className="font-bold text-amber-300 text-[11px] font-mono">
-                                          {formatPKR(room.monthlyRentPKR)}
-                                        </span>
-                                        {isSelected && <Check className="w-3.5 h-3.5 text-amber-400" />}
-                                      </div>
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      );
-                    })()}
-                  </div>
-
-                  {/* Custom Dropdown 2: Duration */}
-                  <div className="relative space-y-1">
-                    <label className="text-[10px] text-slate-300 font-medium flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-amber-400" />
-                      <span>Stay Duration</span>
-                    </label>
-
-                    {(() => {
-                      const activeDur = DURATION_OPTIONS.find((d) => d.value === stayDuration) || DURATION_OPTIONS[2];
-                      return (
-                        <div className="relative">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setIsDurationDropdownOpen(!isDurationDropdownOpen);
-                              setIsRoomDropdownOpen(false);
-                            }}
-                            className={`w-full h-10 rounded-xl bg-slate-950 border px-2.5 sm:px-3 flex items-center justify-between text-xs text-white transition-all shadow-inner group ${
-                              isDurationDropdownOpen ? "border-amber-400 ring-2 ring-amber-500/20" : "border-amber-500/30 hover:border-amber-400/60"
-                            }`}
-                          >
-                            <span className="font-medium truncate text-[11px] sm:text-xs">
-                              {activeDur.label}
-                            </span>
-                            <div className="flex items-center gap-1 shrink-0 ml-1.5">
-                              <span className="text-[10px] font-medium text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20">
-                                {activeDur.badge}
-                              </span>
-                              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isDurationDropdownOpen ? "rotate-180 text-amber-400" : ""}`} />
-                            </div>
-                          </button>
-
-                          {/* Custom Popover Menu for Duration */}
-                          {isDurationDropdownOpen && (
-                            <>
-                              <div
-                                className="fixed inset-0 z-40"
-                                onClick={() => setIsDurationDropdownOpen(false)}
-                              />
-                              <div className="absolute left-0 right-0 bottom-full mb-2 z-50 rounded-xl bg-[#0a0a0e] border border-amber-500/40 shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 animate-in fade-in zoom-in-95 duration-150">
-                                <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-400/80 border-b border-amber-500/20">
-                                  Select Stay Term
-                                </div>
-                                {DURATION_OPTIONS.map((opt) => {
-                                  const isSelected = opt.value === stayDuration;
-                                  return (
-                                    <button
-                                      key={opt.value}
-                                      type="button"
-                                      onClick={() => {
-                                        setStayDuration(opt.value);
-                                        setIsDurationDropdownOpen(false);
-                                      }}
-                                      className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-center justify-between gap-2 ${
-                                        isSelected
-                                          ? "bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold"
-                                          : "hover:bg-white/5 text-slate-300 hover:text-white"
-                                      }`}
-                                    >
-                                      <div className="flex items-center gap-2">
-                                        <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${isSelected ? "bg-amber-500 text-slate-950" : "bg-white/10 text-slate-400"}`}>
-                                          <Calendar className="w-3.5 h-3.5" />
-                                        </div>
-                                        <div>
-                                          <p className="font-semibold text-white text-[11px]">{opt.label}</p>
-                                          <p className="text-[10px] text-slate-400 font-normal">{opt.desc}</p>
-                                        </div>
-                                      </div>
-                                      <div className="flex items-center gap-1.5">
-                                        <span className="text-[10px] font-semibold text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/30">
-                                          {opt.badge}
-                                        </span>
-                                        {isSelected && <Check className="w-3.5 h-3.5 text-amber-400" />}
-                                      </div>
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      );
-                    })()}
-                  </div>
-                </div>
-
-                {/* 3. Monthly Rent Summary & Gold Reserve Action */}
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#14141a] via-[#1a1820] to-[#101015] border border-amber-500/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5">
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] text-slate-300 font-medium">All-Inclusive Monthly Rent:</span>
-                      <span className="text-[9px] text-amber-300 font-bold bg-amber-500/20 px-1.5 py-0.2 rounded border border-amber-500/30">3x Mess Included</span>
-                    </div>
-                    <span className="text-lg sm:text-xl font-black text-amber-400 font-mono tracking-tight">
-                      {formatPKR(estimate.monthly)} <span className="text-xs text-slate-400 font-sans font-normal">/ month</span>
+                <div className="absolute bottom-3 left-3 right-3 text-white z-10">
+                  <div className="flex items-center justify-between text-[11px] text-amber-300 font-medium">
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                      Main University Road, Peshawar
+                    </span>
+                    <span className="bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded-full text-[9px]">
+                      Beds Available
                     </span>
                   </div>
-
-                  <Link href={`/booking?roomId=${selectedRoomType}&duration=${stayDuration}`} className="w-full sm:w-auto">
-                    <Button
-                      size="sm"
-                      className="w-full sm:w-auto font-black text-xs h-9 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
-                    >
-                      Reserve Now →
-                    </Button>
-                  </Link>
                 </div>
+              </div>
+
+              {/* Bottom Quick Info & Reserve CTA */}
+              <div className="p-3.5 sm:p-4 space-y-3 bg-[#0a0a0e] rounded-2xl mt-2.5 border border-amber-500/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] text-slate-400 font-medium block">All-Inclusive Monthly Packages:</span>
+                    <span className="text-base sm:text-lg font-black text-amber-400 font-mono">
+                      Rs. 14,000 - 28,000 <span className="text-xs font-sans text-slate-400 font-normal">/ mo</span>
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-1 rounded-lg">
+                    3x Mess Included
+                  </span>
+                </div>
+
+                <Link href="/booking" className="block w-full">
+                  <Button
+                    className="w-full font-black text-xs h-10 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/25 transition-all"
+                  >
+                    Reserve Your Bed for Fall 2026 →
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
