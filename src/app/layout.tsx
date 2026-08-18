@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/components/providers";
-import { FloatingWhatsApp } from "@/components/common/FloatingWhatsApp";
-
+import { SiteLayoutWrapper } from "@/components/layout/SiteLayoutWrapper";
 import { GlobalMouseSpotlight } from "@/components/common/GlobalMouseSpotlight";
 
 const inter = Inter({
@@ -43,13 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${playfair.variable}`}>
-      <body className="flex flex-col min-h-screen font-sans bg-[#070709] text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
+      <body className="min-h-screen font-sans bg-[#070709] text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
         <Providers>
           <GlobalMouseSpotlight />
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
+          <SiteLayoutWrapper>{children}</SiteLayoutWrapper>
         </Providers>
       </body>
     </html>

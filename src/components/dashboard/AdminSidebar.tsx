@@ -22,14 +22,17 @@ export function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-64 border-r border-amber-500/20 bg-[#0c0c10] min-h-[calc(100vh-5rem)] p-4 space-y-6 flex flex-col justify-between shrink-0">
+    <aside className="w-64 border-r border-amber-500/20 bg-[#09090d] min-h-screen p-4 space-y-6 flex flex-col justify-between shrink-0">
       <div className="space-y-6">
         <div className="px-2 py-2.5 border-b border-amber-500/15 flex items-center gap-3">
-          <Logo variant="dark" size={48} showText={false} />
+          <Logo variant="dark" size={44} showText={false} />
           <div>
-            <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
-              Admin
-            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                Admin
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            </div>
             <h2 className="font-bold font-serif text-xs text-white mt-0.5">Control Center</h2>
           </div>
         </div>
@@ -62,10 +65,13 @@ export function AdminSidebar() {
         </nav>
       </div>
 
-      <div className="pt-4 border-t border-amber-500/15">
-        <Link href="/" className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-amber-400 hover:bg-amber-500/10 rounded-xl transition">
+      <div className="pt-4 border-t border-amber-500/15 space-y-1">
+        <Link href="/admin/login" className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-500/10 rounded-xl transition">
           <LogOut className="w-4 h-4" />
-          <span>Exit to Main Site</span>
+          <span>Sign Out of Admin</span>
+        </Link>
+        <Link href="/" className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-medium text-slate-400 hover:text-amber-300 rounded-xl transition">
+          <span>← View Public Website</span>
         </Link>
       </div>
     </aside>
