@@ -21,8 +21,14 @@ export function ResidentSidebar() {
   return (
     <aside className="w-64 border-r border-amber-500/20 bg-[#0c0c10] min-h-[calc(100vh-5rem)] p-4 space-y-6 flex flex-col justify-between shrink-0">
       <div className="space-y-6">
-        <div className="px-2 py-2 border-b border-amber-500/15 space-y-3">
-          <Logo variant="dark" size="sm" badgeText="Resident" subtext="Fatima Khan (Room 204)" />
+        <div className="px-2 py-2.5 border-b border-amber-500/15 flex items-center gap-3">
+          <Logo variant="dark" size={48} showText={false} />
+          <div>
+            <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
+              Resident
+            </span>
+            <h2 className="font-bold font-serif text-xs text-white mt-0.5">Room #204</h2>
+          </div>
         </div>
 
         <nav className="space-y-1">

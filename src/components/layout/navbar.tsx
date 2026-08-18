@@ -84,8 +84,8 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Brand Logo & Royal Emblem */}
-          <Logo variant="dark" size="md" />
+          {/* Brand Logo & Royal Emblem (Prominent Standalone) */}
+          <Logo variant="dark" size={56} showText={false} priority className="hover:scale-105 transition-transform" />
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">

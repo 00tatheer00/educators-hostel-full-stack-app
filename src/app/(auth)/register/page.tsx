@@ -57,7 +57,7 @@ export default function RegisterPage() {
       <Card className="w-full max-w-lg rounded-3xl border border-amber-500/30 shadow-2xl bg-[#0c0c10]/95 backdrop-blur-xl relative z-10">
         <CardHeader className="space-y-4 text-center pb-6">
           <div className="flex justify-center">
-            <Logo variant="dark" size="lg" showBadge={false} subtext="" />
+            <Logo variant="dark" size={80} showText={false} priority />
           </div>
           <div>
             <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-2">

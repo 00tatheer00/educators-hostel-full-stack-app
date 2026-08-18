@@ -55,7 +55,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pt-4">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo variant="dark" size="lg" badgeText="Peshawar" subtext="Main University Road, Peshawar" />
+            <div className="flex items-center gap-4">
+              <Logo variant="dark" size={68} showText={false} />
+              <div>
+                <span className="font-serif text-xl font-black text-white tracking-tight block">
+                  Educator Girls Hostel
+                </span>
+                <span className="text-[10px] text-amber-400 font-bold uppercase tracking-widest">
+                  Peshawar, Khyber Pakhtunkhwa
+                </span>
+              </div>
+            </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Peshawar&apos;s most trusted luxury residence for female university students, medical officers, and professionals. 100% female staff, 3-time nutritious mess, biometric gate security, and 24/7 power backup.
