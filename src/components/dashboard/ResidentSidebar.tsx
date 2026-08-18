@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bed, CalendarCheck, CreditCard, Wrench, ShieldCheck, User, LogOut, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Logo } from "@/components/common/Logo";
 
 export function ResidentSidebar() {
   const pathname = usePathname();
@@ -20,11 +21,8 @@ export function ResidentSidebar() {
   return (
     <aside className="w-64 border-r border-amber-500/20 bg-[#0c0c10] min-h-[calc(100vh-5rem)] p-4 space-y-6 flex flex-col justify-between shrink-0">
       <div className="space-y-6">
-        <div className="px-3 py-2 border-b border-amber-500/15">
-          <Badge variant="gold" className="text-[10px]">Resident Portal</Badge>
-          <h2 className="font-bold font-serif text-sm text-white mt-1">
-            Fatima Khan (Room 204)
-          </h2>
+        <div className="px-2 py-2 border-b border-amber-500/15 space-y-3">
+          <Logo variant="dark" size="sm" badgeText="Resident" subtext="Fatima Khan (Room 204)" />
         </div>
 
         <nav className="space-y-1">

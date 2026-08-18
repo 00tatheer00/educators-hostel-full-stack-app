@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "Luxury Hostel KPK",
   ],
   authors: [{ name: "Educator Girls Hostel" }],
+  icons: {
+    icon: "/images/logo-dark.png",
+    apple: "/images/logo-dark.png",
+  },
 };
 
 export default function RootLayout({

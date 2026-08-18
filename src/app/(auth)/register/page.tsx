@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { Logo } from "@/components/common/Logo";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -54,13 +55,13 @@ export default function RegisterPage() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <Card className="w-full max-w-lg rounded-3xl border border-amber-500/30 shadow-2xl bg-[#0c0c10]/95 backdrop-blur-xl relative z-10">
-        <CardHeader className="space-y-3 text-center pb-6">
-          <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a1710] to-[#0a0a0e] text-amber-400 font-bold flex items-center justify-center text-xl shadow-xl shadow-amber-500/10 border border-amber-400/40">
-            <Crown className="w-7 h-7 text-amber-400" />
+        <CardHeader className="space-y-4 text-center pb-6">
+          <div className="flex justify-center">
+            <Logo variant="dark" size="lg" showBadge={false} subtext="" />
           </div>
           <div>
             <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-2">
-              Fall 2026 Admissions
+              Fall 2026 Admissions Open
             </span>
             <CardTitle className="text-2xl font-bold font-serif text-white">Resident Registration</CardTitle>
             <CardDescription className="text-xs text-slate-400 mt-1">

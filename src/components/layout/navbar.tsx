@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Bed, Phone, Sparkles, Menu, X, Globe, LogIn, ShieldCheck, MapPin, ChevronRight, Crown } from "lucide-react";
+import { Bed, Phone, Menu, X, Globe, LogIn, MapPin, ChevronRight, Crown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { Logo } from "@/components/common/Logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,33 +85,7 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Brand Logo & Royal Emblem */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-yellow-600 p-0.5 shadow-lg shadow-amber-500/25 group-hover:scale-105 group-hover:shadow-amber-500/40 transition-all duration-300">
-                <div className="w-full h-full bg-[#0a0a0e] rounded-[10px] flex items-center justify-center backdrop-blur-sm text-amber-300">
-                  <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
-                </div>
-              </div>
-              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-amber-500 border-2 border-black flex items-center justify-center text-[7px] text-slate-950 font-black">
-                ✓
-              </span>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors">
-                  Educator Girls Hostel
-                </span>
-                <span className="hidden sm:inline-block text-[9px] font-extrabold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
-                  Royal Living
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-400 font-normal flex items-center gap-1.5">
-                <span>University Road, Peshawar</span>
-                <span className="text-amber-400 font-medium">• 100% Female Safe</span>
-              </p>
-            </div>
-          </Link>
+          <Logo variant="dark" size="md" />
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">

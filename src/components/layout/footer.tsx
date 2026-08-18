@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Sparkles, Phone, Mail, MapPin, ShieldCheck, Heart, ArrowRight, Instagram, Facebook, MessageCircle, Crown } from "lucide-react";
 import { MultiLayerWaveTop } from "@/components/decorative/DoodleVectors";
+import { Logo } from "@/components/common/Logo";
 
 export function Footer() {
   return (
@@ -54,19 +55,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pt-4">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/30 font-black">
-                <Sparkles className="w-6 h-6 animate-pulse text-slate-950" />
-              </div>
-              <div>
-                <span className="font-serif text-xl font-black text-white tracking-tight block">
-                  Educator Girls Hostel
-                </span>
-                <span className="text-[10px] text-amber-400 font-bold uppercase tracking-widest">
-                  Peshawar, Khyber Pakhtunkhwa
-                </span>
-              </div>
-            </div>
+            <Logo variant="dark" size="lg" badgeText="Peshawar" subtext="Main University Road, Peshawar" />
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Peshawar&apos;s most trusted luxury residence for female university students, medical officers, and professionals. 100% female staff, 3-time nutritious mess, biometric gate security, and 24/7 power backup.

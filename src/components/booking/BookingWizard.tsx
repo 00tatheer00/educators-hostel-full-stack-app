@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Calendar, CreditCard, ShieldCheck, User, Phone, FileText, Download, Printer, Crown, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/context/LanguageContext";
+import { Logo } from "@/components/common/Logo";
 
 export function BookingWizard() {
   const searchParams = useSearchParams();
@@ -375,9 +376,9 @@ export function BookingWizard() {
       {/* STEP 4: Booking Confirmation Receipt */}
       {currentStep === 4 && (
         <Card className="border-amber-500/40 shadow-2xl overflow-hidden bg-[#0d0d12] text-center">
-          <div className="bg-gradient-to-r from-[#14141a] via-[#201a10] to-[#0c0c10] text-white p-8 space-y-3 border-b border-amber-500/30">
-            <div className="w-14 h-14 rounded-full bg-amber-500/20 border border-amber-400 text-amber-300 flex items-center justify-center mx-auto text-2xl shadow-lg shadow-amber-500/20">
-              <Crown className="w-8 h-8 text-amber-400" />
+          <div className="bg-gradient-to-r from-[#14141a] via-[#201a10] to-[#0c0c10] text-white p-8 space-y-4 border-b border-amber-500/30">
+            <div className="flex justify-center">
+              <Logo variant="dark" size="lg" showBadge={false} subtext="" />
             </div>
             <h2 className="text-2xl font-bold font-serif text-white">Booking Confirmed!</h2>
             <p className="text-xs text-slate-300">
