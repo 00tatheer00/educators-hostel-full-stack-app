@@ -21,18 +21,24 @@ export function RevenueChart() {
         <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
           <defs>
             <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0f5132" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#0f5132" stopOpacity={0.0} />
+              <stop offset="5%" stopColor="#d4af37" stopOpacity={0.7} />
+              <stop offset="95%" stopColor="#d4af37" stopOpacity={0.0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-          <XAxis dataKey="month" tickLine={false} axisLine={false} className="text-[11px]" />
-          <YAxis tickLine={false} axisLine={false} className="text-[11px]" tickFormatter={(v) => `${v / 1000}k`} />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(212, 175, 55, 0.15)" />
+          <XAxis dataKey="month" tickLine={false} axisLine={false} className="text-[11px] fill-slate-400" />
+          <YAxis tickLine={false} axisLine={false} className="text-[11px] fill-slate-400" tickFormatter={(v) => `${v / 1000}k`} />
           <Tooltip
             formatter={(value: any) => [formatPKR(Number(value)), "Revenue"]}
-            contentStyle={{ borderRadius: "12px", border: "1px solid #e2e8f0", fontSize: "12px" }}
+            contentStyle={{
+              backgroundColor: "#0c0c10",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
+              borderRadius: "12px",
+              fontSize: "12px",
+              color: "#fbbf24",
+            }}
           />
-          <Area type="monotone" dataKey="revenue" stroke="#0f5132" strokeWidth={3} fillOpacity={1} fill="url(#colorRevenue)" />
+          <Area type="monotone" dataKey="revenue" stroke="#d4af37" strokeWidth={3} fillOpacity={1} fill="url(#colorRevenue)" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

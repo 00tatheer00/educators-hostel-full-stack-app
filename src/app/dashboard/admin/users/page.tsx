@@ -5,7 +5,7 @@ import { AdminSidebar } from "@/components/dashboard/AdminSidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { UserCog, Shield, Lock, Plus } from "lucide-react";
+import { UserCog, Shield, Lock, Plus, Crown } from "lucide-react";
 
 export default function AdminUsersPage() {
   const staff = [
@@ -16,32 +16,35 @@ export default function AdminUsersPage() {
   ];
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <AdminSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/20 pb-6">
           <div>
-            <Badge variant="gold">Staff Management</Badge>
-            <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              Staff Management
+            </span>
+            <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
               Admin & Staff Role Permissions
             </h1>
-            <p className="text-xs text-slate-500">Manage female staff accounts, warden access levels, and security credentials</p>
+            <p className="text-xs text-slate-400">Manage female staff accounts, warden access levels, and security credentials</p>
           </div>
-          <Button variant="emerald" size="sm" className="text-xs font-semibold">
+          <Button size="sm" className="text-xs font-black bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400">
             <Plus className="w-4 h-4 mr-1.5" />
             + Add Staff Member
           </Button>
         </div>
 
-        <Card className="border-slate-200 dark:border-slate-800">
+        <Card className="border-amber-500/25 bg-[#0c0c10]">
           <CardHeader>
-            <CardTitle className="text-base font-serif">Staff Directory & Role Assignments</CardTitle>
+            <CardTitle className="text-base font-serif text-white">Staff Directory & Role Assignments</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="border-b border-slate-200 dark:border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+                <thead className="border-b border-amber-500/20 text-amber-400/80 uppercase tracking-wider font-semibold">
                   <tr>
                     <th className="py-3 px-4">Staff Member</th>
                     <th className="py-3 px-4">Assigned Role</th>
@@ -50,15 +53,15 @@ export default function AdminUsersPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                <tbody className="divide-y divide-amber-500/10">
                   {staff.map((s, i) => (
-                    <tr key={i}>
-                      <td className="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100">{s.name}</td>
+                    <tr key={i} className="hover:bg-slate-950/40">
+                      <td className="py-3.5 px-4 font-bold text-white">{s.name}</td>
                       <td className="py-3.5 px-4"><Badge variant="gold">{s.role}</Badge></td>
-                      <td className="py-3.5 px-4 font-mono">{s.email}</td>
+                      <td className="py-3.5 px-4 font-mono text-amber-300">{s.email}</td>
                       <td className="py-3.5 px-4"><Badge variant="outline">{s.access}</Badge></td>
                       <td className="py-3.5 px-4 text-right">
-                        <Button variant="outline" size="sm" className="text-[10px]">Edit Scope</Button>
+                        <Button variant="outline" size="sm" className="text-[10px] border-amber-500/30 text-amber-300">Edit Scope</Button>
                       </td>
                     </tr>
                   ))}

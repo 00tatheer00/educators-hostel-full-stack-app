@@ -33,27 +33,27 @@ export function GlobalMouseSpotlight() {
       style={{ opacity: isVisible ? 1 : 0 }}
       aria-hidden="true"
     >
-      {/* Primary High-Gloss Ambient Spotlight Follower */}
+      {/* Primary High-Gloss Ambient Gold Spotlight Follower */}
       <div
-        className="absolute rounded-full blur-[120px] transition-transform duration-75 ease-out will-change-transform"
+        className="absolute rounded-full blur-[130px] transition-transform duration-75 ease-out will-change-transform pointer-events-none"
         style={{
           width: "600px",
           height: "600px",
           transform: `translate3d(${mousePos.x - 300}px, ${mousePos.y - 300}px, 0)`,
           background:
-            "radial-gradient(circle, rgba(236, 72, 153, 0.14) 0%, rgba(99, 102, 241, 0.12) 35%, rgba(6, 182, 212, 0.06) 70%, transparent 100%)",
+            "radial-gradient(circle, rgba(212, 175, 55, 0.14) 0%, rgba(245, 158, 11, 0.08) 35%, rgba(180, 83, 9, 0.03) 70%, transparent 100%)",
         }}
       />
 
-      {/* Secondary Inner Core Sparkle Glow */}
+      {/* Secondary Inner Core Golden Sparkle Glow */}
       <div
-        className="absolute rounded-full blur-[60px] transition-transform duration-100 ease-out will-change-transform"
+        className="absolute rounded-full blur-[65px] transition-transform duration-100 ease-out will-change-transform pointer-events-none"
         style={{
           width: "240px",
           height: "240px",
           transform: `translate3d(${mousePos.x - 120}px, ${mousePos.y - 120}px, 0)`,
           background:
-            "radial-gradient(circle, rgba(244, 114, 182, 0.18) 0%, rgba(168, 85, 247, 0.12) 50%, transparent 100%)",
+            "radial-gradient(circle, rgba(251, 191, 36, 0.22) 0%, rgba(212, 175, 55, 0.12) 50%, transparent 100%)",
         }}
       />
     </div>

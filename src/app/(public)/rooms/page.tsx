@@ -5,6 +5,7 @@ import { ROOMS_DATA, RoomItem } from "@/data/roomsData";
 import { RoomCard } from "@/components/rooms/RoomCard";
 import { RoomFilters } from "@/components/rooms/RoomFilters";
 import { Badge } from "@/components/ui/badge";
+import { Crown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { SquiggleWave, CapsulePillBar, PolkaDotGrid } from "@/components/decorative/DoodleVectors";
 
@@ -68,22 +69,23 @@ export default function RoomsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
-      {/* Saturated Header Banner */}
-      <section className="relative bg-gradient-to-r from-pink-950 via-slate-950 to-indigo-950 text-white py-20 px-4 sm:px-8 overflow-hidden">
-        <div className="absolute top-6 right-8 opacity-70 hidden md:block">
-          <SquiggleWave color="#FF1E7A" width={140} height={28} />
+    <div className="min-h-screen bg-[#070709] text-slate-100">
+      {/* Luxury Black & Gold Header Banner */}
+      <section className="relative bg-gradient-to-r from-[#0d0d12] via-[#171410] to-[#0a0a0e] text-white py-20 px-4 sm:px-8 overflow-hidden border-b border-amber-500/20">
+        <div className="absolute top-6 right-8 opacity-60 hidden md:block">
+          <SquiggleWave color="#d4af37" width={140} height={28} />
         </div>
-        <div className="absolute bottom-6 left-8 opacity-60 hidden md:block">
-          <PolkaDotGrid rows={3} cols={6} dotColor="bg-teal-400/40" />
+        <div className="absolute bottom-6 left-8 opacity-40 hidden md:block">
+          <PolkaDotGrid rows={3} cols={6} dotColor="bg-amber-400/40" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-pink-500/20 text-pink-300 font-extrabold text-xs uppercase tracking-wider border border-pink-400/40">
-            ★ Available Accommodations
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-300 font-extrabold text-xs uppercase tracking-wider border border-amber-400/40">
+            <Crown className="w-3.5 h-3.5 text-amber-400" />
+            Available Accommodations
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight">
-            Explore Rooms & <span className="text-gradient-pink">Reserve Your Bed</span>
+          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight text-white">
+            Explore Rooms & <span className="text-gradient-gold-pure">Reserve Your Bed</span>
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {isUrdu
@@ -112,20 +114,20 @@ export default function RoomsPage() {
 
           {/* Right Rooms Grid Display */}
           <div className="lg:col-span-8 space-y-6">
-            <div className="flex justify-between items-center text-xs text-slate-500 font-bold border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div className="flex justify-between items-center text-xs text-slate-400 font-bold border-b border-amber-500/20 pb-3">
               <span>
-                {isUrdu ? "دستیاب کمرے:" : "Showing Accommodations:"} {filteredRooms.length} of {ROOMS_DATA.length}
+                {isUrdu ? "دستیاب کمرے:" : "Showing Accommodations:"} <span className="text-amber-300 font-bold">{filteredRooms.length}</span> of {ROOMS_DATA.length}
               </span>
-              <span className="text-pink-600 dark:text-pink-400">Main University Road, Peshawar</span>
+              <span className="text-amber-400">Main University Road, Peshawar</span>
             </div>
 
             {filteredRooms.length === 0 ? (
-              <div className="bg-white dark:bg-slate-900 rounded-3xl p-12 text-center border-2 border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
-                <h3 className="text-lg font-bold">No Rooms Match Your Search Criteria</h3>
-                <p className="text-xs text-slate-500">Try adjusting your budget range or clearing selected amenity filters.</p>
+              <div className="bg-[#0d0d12] rounded-3xl p-12 text-center border border-amber-500/25 space-y-3 shadow-2xl">
+                <h3 className="text-lg font-bold text-white">No Rooms Match Your Search Criteria</h3>
+                <p className="text-xs text-slate-400">Try adjusting your budget range or clearing selected amenity filters.</p>
                 <button
                   onClick={resetFilters}
-                  className="text-xs font-bold text-pink-600 hover:underline"
+                  className="text-xs font-bold text-amber-400 hover:underline"
                 >
                   Clear All Filters
                 </button>

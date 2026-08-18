@@ -38,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="flex flex-col min-h-screen font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <html lang="en" className={`dark ${inter.variable} ${playfair.variable}`}>
+      <body className="flex flex-col min-h-screen font-sans bg-[#070709] text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
         <Providers>
           <GlobalMouseSpotlight />
           <Navbar />

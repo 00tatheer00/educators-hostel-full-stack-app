@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bed, Plus, Edit, Trash2, CheckCircle2, Wrench, Eye } from "lucide-react";
+import { Bed, Plus, Edit, Trash2, CheckCircle2, Wrench, Eye, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 export default function AdminRoomsPage() {
@@ -68,48 +68,52 @@ export default function AdminRoomsPage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <AdminSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/20 pb-6">
           <div>
-            <Badge variant="gold">Inventory Control</Badge>
-            <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              Inventory Control
+            </span>
+            <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
               Rooms & Capacity Management
             </h1>
-            <p className="text-xs text-slate-500">Manage room rates, bed occupancy, and maintenance status</p>
+            <p className="text-xs text-slate-400">Manage room rates, bed occupancy, and maintenance status</p>
           </div>
-          <Button onClick={() => setShowAddModal(true)} variant="emerald" size="sm" className="font-semibold text-xs">
-            <Plus className="w-4 h-4 mr-1.5" />
+          <Button onClick={() => setShowAddModal(true)} size="sm" className="font-black text-xs bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400 hover:to-amber-300 shadow-md">
+            <Plus className="w-4 h-4 mr-1.5 text-slate-950" />
             Add New Room
           </Button>
         </div>
 
         {/* Add Room Modal */}
         {showAddModal && (
-          <Card className="border-emerald-800/30 shadow-2xl p-6 space-y-4 max-w-lg mx-auto bg-white dark:bg-slate-900">
+          <Card className="border-amber-500/35 shadow-2xl p-6 space-y-4 max-w-lg mx-auto bg-[#0c0c10]">
             <CardHeader className="p-0">
-              <CardTitle className="text-lg font-serif">Add New Room to Hostel Inventory</CardTitle>
+              <CardTitle className="text-lg font-serif text-white">Add New Room to Hostel Inventory</CardTitle>
             </CardHeader>
             <form onSubmit={handleAddRoom} className="space-y-4 text-xs">
               <div className="space-y-1.5">
-                <label className="font-semibold">Room Number *</label>
+                <label className="font-semibold text-slate-300">Room Number *</label>
                 <Input
                   required
                   placeholder="e.g. 305"
                   value={newRoomNumber}
                   onChange={(e) => setNewRoomNumber(e.target.value)}
+                  className="bg-slate-950 border-amber-500/30 text-white"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Room Type</label>
+                  <label className="font-semibold text-slate-300">Room Type</label>
                   <select
                     value={newRoomType}
                     onChange={(e) => setNewRoomType(e.target.value as any)}
-                    className="w-full h-11 rounded-xl border border-input bg-background px-3 text-xs"
+                    className="w-full h-11 rounded-xl border border-amber-500/30 bg-slate-950 px-3 text-xs text-white"
                   >
                     <option value="SINGLE">Single Executive</option>
                     <option value="DOUBLE">Deluxe Double</option>
@@ -119,20 +123,21 @@ export default function AdminRoomsPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Monthly Rent (PKR)</label>
+                  <label className="font-semibold text-slate-300">Monthly Rent (PKR)</label>
                   <Input
                     type="number"
                     value={newRent}
                     onChange={(e) => setNewRent(Number(e.target.value))}
+                    className="bg-slate-950 border-amber-500/30 text-white font-mono"
                   />
                 </div>
               </div>
 
               <div className="flex gap-3 pt-2">
-                <Button type="button" variant="outline" onClick={() => setShowAddModal(false)} className="w-1/2">
+                <Button type="button" variant="outline" onClick={() => setShowAddModal(false)} className="w-1/2 border-amber-500/30 text-amber-300">
                   Cancel
                 </Button>
-                <Button type="submit" variant="emerald" className="w-1/2 font-semibold">
+                <Button type="submit" className="w-1/2 font-black bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950">
                   Save Room
                 </Button>
               </div>
@@ -141,14 +146,14 @@ export default function AdminRoomsPage() {
         )}
 
         {/* Inventory Table */}
-        <Card className="border-slate-200 dark:border-slate-800">
+        <Card className="border-amber-500/25 bg-[#0c0c10]">
           <CardHeader>
-            <CardTitle className="text-base font-serif">Hostel Rooms Inventory ({rooms.length} Units)</CardTitle>
+            <CardTitle className="text-base font-serif text-white">Hostel Rooms Inventory ({rooms.length} Units)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="border-b border-slate-200 dark:border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+                <thead className="border-b border-amber-500/20 text-amber-400/80 uppercase tracking-wider font-semibold">
                   <tr>
                     <th className="py-3 px-4">Room Details</th>
                     <th className="py-3 px-4">Category</th>
@@ -158,20 +163,20 @@ export default function AdminRoomsPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                <tbody className="divide-y divide-amber-500/10">
                   {rooms.map((room) => (
-                    <tr key={room.id}>
-                      <td className="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100">{room.title}</td>
+                    <tr key={room.id} className="hover:bg-slate-950/40">
+                      <td className="py-3.5 px-4 font-bold text-white">{room.title}</td>
                       <td className="py-3.5 px-4"><Badge variant="outline">{room.roomType}</Badge></td>
-                      <td className="py-3.5 px-4">{room.capacity} Resident ({room.availableBeds} Available)</td>
-                      <td className="py-3.5 px-4 font-bold text-emerald-800 dark:text-emerald-400">{formatPKR(room.monthlyRentPKR)}</td>
+                      <td className="py-3.5 px-4 text-slate-300">{room.capacity} Resident ({room.availableBeds} Available)</td>
+                      <td className="py-3.5 px-4 font-black text-amber-400 font-mono">{formatPKR(room.monthlyRentPKR)}</td>
                       <td className="py-3.5 px-4">
-                        <Badge variant={room.badge === "Under Maintenance" ? "destructive" : "emerald"}>
+                        <Badge variant={room.badge === "Under Maintenance" ? "destructive" : "gold"}>
                           {room.badge}
                         </Badge>
                       </td>
                       <td className="py-3.5 px-4 text-right space-x-2">
-                        <Button onClick={() => toggleRoomStatus(room.id)} variant="outline" size="sm" className="text-[10px]">
+                        <Button onClick={() => toggleRoomStatus(room.id)} variant="outline" size="sm" className="text-[10px] border-amber-500/30 text-amber-300">
                           Toggle Status
                         </Button>
                       </td>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, Users, Award, Heart, CheckCircle2, Star, Building2, MapPin, Sparkles } from "lucide-react";
+import { ShieldCheck, Users, Award, Heart, CheckCircle2, Star, Building2, MapPin, Sparkles, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/context/LanguageContext";
@@ -11,10 +11,10 @@ export default function AboutPage() {
   const isUrdu = language === "ur";
 
   const stats = [
-    { label: isUrdu ? "کل دستیاب نشستیں" : "Total Capacity", value: "100+ Beds", color: "from-pink-500 to-rose-600" },
-    { label: isUrdu ? "کامیاب طالبات" : "Alumni Residents", value: "500+ Students", color: "from-indigo-500 to-purple-600" },
-    { label: isUrdu ? "ریٹنگ اور رائے" : "Overall Rating", value: "4.9 / 5.0", color: "from-amber-500 to-orange-600" },
-    { label: isUrdu ? "فی میل اسٹاف" : "Staff Structure", value: "100% Female", color: "from-teal-500 to-emerald-600" },
+    { label: isUrdu ? "کل دستیاب نشستیں" : "Total Capacity", value: "100+ Beds", color: "from-amber-400 to-yellow-300" },
+    { label: isUrdu ? "کامیاب طالبات" : "Alumni Residents", value: "500+ Students", color: "from-yellow-300 to-amber-500" },
+    { label: isUrdu ? "ریٹنگ اور رائے" : "Overall Rating", value: "4.9 / 5.0", color: "from-amber-300 to-yellow-400" },
+    { label: isUrdu ? "فی میل اسٹاف" : "Staff Structure", value: "100% Female", color: "from-yellow-400 to-amber-600" },
   ];
 
   const team = [
@@ -39,23 +39,24 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
-      {/* Saturated Header Banner */}
-      <section className="relative bg-gradient-to-r from-indigo-950 via-slate-950 to-pink-950 text-white py-20 px-4 sm:px-8 overflow-hidden">
-        <div className="absolute top-6 right-8 opacity-70 hidden md:block">
-          <SquiggleWave color="#FF1E7A" width={140} height={28} />
+    <div className="min-h-screen bg-[#070709] text-slate-100">
+      {/* Luxury Black & Gold Header Banner */}
+      <section className="relative bg-gradient-to-r from-[#0d0d12] via-[#171410] to-[#0a0a0e] text-white py-20 px-4 sm:px-8 overflow-hidden border-b border-amber-500/20">
+        <div className="absolute top-6 right-8 opacity-60 hidden md:block">
+          <SquiggleWave color="#d4af37" width={140} height={28} />
         </div>
-        <div className="absolute bottom-6 left-8 opacity-60 hidden md:block">
-          <PolkaDotGrid rows={3} cols={6} dotColor="bg-pink-400/40" />
+        <div className="absolute bottom-6 left-8 opacity-40 hidden md:block">
+          <PolkaDotGrid rows={3} cols={6} dotColor="bg-amber-400/40" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-pink-500/20 text-pink-300 font-extrabold text-xs uppercase tracking-wider border border-pink-400/40">
-            ★ About Our Institution
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-300 font-extrabold text-xs uppercase tracking-wider border border-amber-400/40">
+            <Crown className="w-3.5 h-3.5 text-amber-400" />
+            About Our Institution
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight text-white">
             Peshawar&apos;s Premier <br />
-            <span className="text-gradient-pink">Female Student Residency</span>
+            <span className="text-gradient-gold-pure">Female Student Residency</span>
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {isUrdu
@@ -71,13 +72,13 @@ export default function AboutPage() {
           {stats.map((s, i) => (
             <Card
               key={i}
-              className="rounded-3xl border-2 border-slate-200 dark:border-slate-800 text-center shadow-xl hover:-translate-y-1.5 transition-transform bg-white dark:bg-slate-900"
+              className="rounded-3xl border border-amber-500/25 text-center shadow-xl hover:border-amber-400/60 hover:-translate-y-1.5 transition-transform bg-[#0c0c10]"
             >
               <CardContent className="p-6 space-y-1">
-                <span className={`text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${s.color} font-serif`}>
+                <span className={`text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${s.color} font-serif font-mono`}>
                   {s.value}
                 </span>
-                <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{s.label}</p>
+                <p className="text-xs font-bold text-slate-400">{s.label}</p>
               </CardContent>
             </Card>
           ))}
@@ -86,35 +87,35 @@ export default function AboutPage() {
         {/* History & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <span className="px-3.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs uppercase tracking-wider">
+            <span className="px-3.5 py-1 rounded-full bg-amber-500/15 text-amber-300 font-extrabold text-xs uppercase tracking-wider border border-amber-500/30">
               Core Principles
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black font-serif text-slate-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl font-black font-serif text-white">
               Our Mission & Values
             </h2>
-            <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
               <p>
                 Educator Girls Hostel was founded with a singular mission: to provide female students coming to Peshawar from across KPK and Pakistan with a residence that feels as safe, warm, and supportive as their own home.
               </p>
               <div className="space-y-3 pt-2">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-900 dark:text-white block">Strict Female Staffing:</strong>
+                    <strong className="text-white block">Strict Female Staffing:</strong>
                     <span>Wardens, kitchen chefs, housekeepers, and counselors are 100% female.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-900 dark:text-white block">Academic Peace:</strong>
+                    <strong className="text-white block">Academic Peace:</strong>
                     <span>Designated study hours, high-speed fiber routers, and air-conditioned quiet study lounge.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-900 dark:text-white block">Parent Trust & Alerts:</strong>
+                    <strong className="text-white block">Parent Trust & Alerts:</strong>
                     <span>Digital SMS gate pass system keeps parents informed on all resident departures.</span>
                   </div>
                 </div>
@@ -122,7 +123,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-pink-500/40 bg-slate-900">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-amber-500/35 bg-[#0c0c10]">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80"
               alt="Educator Hostel Campus"
@@ -134,30 +135,30 @@ export default function AboutPage() {
         {/* Leadership Team */}
         <div className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="px-3.5 py-1 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300 font-extrabold text-xs uppercase tracking-wider">
+            <span className="px-3.5 py-1 rounded-full bg-amber-500/15 text-amber-300 font-extrabold text-xs uppercase tracking-wider border border-amber-500/30">
               Management
             </span>
-            <h2 className="text-3xl font-black font-serif text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-black font-serif text-white">
               Hostel Management & Warden Desk
             </h2>
-            <p className="text-xs text-slate-500">Dedicated female staff available 24 hours a day to support residents</p>
+            <p className="text-xs text-slate-400">Dedicated female staff available 24 hours a day to support residents</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((t, idx) => (
               <Card
                 key={idx}
-                className="overflow-hidden rounded-3xl border-2 border-slate-200 dark:border-slate-800 text-center shadow-xl bg-white dark:bg-slate-900 hover:-translate-y-2 transition-transform"
+                className="overflow-hidden rounded-3xl border border-amber-500/25 text-center shadow-xl bg-[#0c0c10] hover:-translate-y-2 hover:border-amber-400/60 transition-transform"
               >
-                <div className="h-56 overflow-hidden bg-slate-100">
+                <div className="h-56 overflow-hidden bg-slate-950">
                   <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
                 </div>
                 <CardContent className="p-6 space-y-2">
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">{t.name}</h3>
-                  <span className="inline-block px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950 text-pink-700 dark:text-pink-300 text-xs font-bold">
+                  <h3 className="font-bold text-lg text-white">{t.name}</h3>
+                  <span className="inline-block px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
                     {t.role}
                   </span>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 pt-2 leading-relaxed">{t.bio}</p>
+                  <p className="text-xs text-slate-400 pt-2 leading-relaxed">{t.bio}</p>
                 </CardContent>
               </Card>
             ))}

@@ -3,10 +3,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
 const data = [
-  { name: "Single Executive", value: 15, color: "#0f5132" },
-  { name: "Deluxe Double", value: 40, color: "#166534" },
-  { name: "Triple Economy", value: 25, color: "#d4af37" },
-  { name: "Quad Student", value: 10, color: "#f59e0b" },
+  { name: "Single Executive", value: 15, color: "#ffd700" },
+  { name: "Deluxe Double", value: 40, color: "#d4af37" },
+  { name: "Triple Economy", value: 25, color: "#f59e0b" },
+  { name: "Quad Student", value: 10, color: "#92400e" },
 ];
 
 export function OccupancyChart() {
@@ -24,11 +24,19 @@ export function OccupancyChart() {
             dataKey="value"
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
+              <Cell key={`cell-${index}`} fill={entry.color} stroke="#070709" strokeWidth={2} />
             ))}
           </Pie>
-          <Tooltip contentStyle={{ borderRadius: "12px", fontSize: "12px" }} />
-          <Legend wrapperStyle={{ fontSize: "11px" }} />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: "#0c0c10",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
+              borderRadius: "12px",
+              fontSize: "12px",
+              color: "#fff",
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: "11px", color: "#d1d5db" }} />
         </PieChart>
       </ResponsiveContainer>
     </div>

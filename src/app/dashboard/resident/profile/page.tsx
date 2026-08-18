@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { User, ShieldCheck, Save, Upload } from "lucide-react";
+import { User, ShieldCheck, Save, Upload, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ResidentProfilePage() {
@@ -27,93 +27,104 @@ export default function ResidentProfilePage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <ResidentSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="border-b border-slate-200 dark:border-slate-800 pb-6">
-          <Badge variant="emerald">My Account</Badge>
-          <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+        <div className="border-b border-amber-500/20 pb-6">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+            <Crown className="w-3.5 h-3.5 text-amber-400" />
+            My Account
+          </span>
+          <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
             Resident Profile & CNIC Records
           </h1>
-          <p className="text-xs text-slate-500">Manage emergency contacts, university details, and identity documents</p>
+          <p className="text-xs text-slate-400">Manage emergency contacts, university details, and identity documents</p>
         </div>
 
-        <Card className="border-slate-200 dark:border-slate-800 max-w-3xl shadow-xl">
+        <Card className="border-amber-500/25 bg-[#0c0c10] max-w-3xl shadow-2xl">
           <CardHeader>
-            <CardTitle className="text-lg font-serif">Personal Information & Contacts</CardTitle>
+            <CardTitle className="text-lg font-serif text-white">Personal Information & Contacts</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSave} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Full Name</label>
+                  <label className="font-semibold text-slate-300">Full Name</label>
                   <Input
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="font-semibold">CNIC / B-Form Number</label>
+                  <label className="font-semibold text-slate-300">CNIC / B-Form Number</label>
                   <Input
                     value={formData.cnicNumber}
                     onChange={(e) => setFormData({ ...formData, cnicNumber: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Email Address</label>
+                  <label className="font-semibold text-slate-300">Email Address</label>
                   <Input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Resident Phone</label>
+                  <label className="font-semibold text-slate-300">Resident Phone</label>
                   <Input
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white font-mono"
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-semibold">University / Institution</label>
+                <label className="font-semibold text-slate-300">University / Institution</label>
                 <Input
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                  className="bg-slate-950 border-amber-500/30 text-white"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-amber-500/15">
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Father / Guardian Name</label>
+                  <label className="font-semibold text-slate-300">Father / Guardian Name</label>
                   <Input
                     value={formData.guardianName}
                     onChange={(e) => setFormData({ ...formData, guardianName: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="font-semibold">Guardian Emergency Phone</label>
+                  <label className="font-semibold text-slate-300">Guardian Emergency Phone</label>
                   <Input
                     value={formData.guardianPhone}
                     onChange={(e) => setFormData({ ...formData, guardianPhone: e.target.value })}
+                    className="bg-slate-950 border-amber-500/30 text-white font-mono"
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-semibold">Permanent Home Address</label>
+                <label className="font-semibold text-slate-300">Permanent Home Address</label>
                 <Input
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  className="bg-slate-950 border-amber-500/30 text-white"
                 />
               </div>
 
-              <Button type="submit" variant="emerald" className="font-semibold h-11 px-8">
+              <Button type="submit" className="font-black h-11 px-8 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400">
                 <Save className="w-4 h-4 mr-2" />
                 Save Profile Changes
               </Button>

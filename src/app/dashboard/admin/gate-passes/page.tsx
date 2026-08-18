@@ -5,7 +5,7 @@ import { AdminSidebar } from "@/components/dashboard/AdminSidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShieldCheck, Check, X, Clock, AlertCircle } from "lucide-react";
+import { ShieldCheck, Check, X, Clock, AlertCircle, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 interface AdminGatePass {
@@ -68,30 +68,33 @@ export default function AdminGatePassesPage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <AdminSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/20 pb-6">
           <div>
-            <Badge variant="gold">Warden Security Desk</Badge>
-            <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              Warden Security Desk
+            </span>
+            <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
               Resident Security & Gate Passes
             </h1>
-            <p className="text-xs text-slate-500">Digital leave application approvals & biometric curfew tracking</p>
+            <p className="text-xs text-slate-400">Digital leave application approvals & biometric curfew tracking</p>
           </div>
         </div>
 
         {/* Gate Passes Table */}
-        <Card className="border-slate-200 dark:border-slate-800">
+        <Card className="border-amber-500/25 bg-[#0c0c10]">
           <CardHeader>
-            <CardTitle className="text-base font-serif">Gate Pass Applications</CardTitle>
-            <CardDescription>Guardian phone verification & warden sign-off</CardDescription>
+            <CardTitle className="text-base font-serif text-white">Gate Pass Applications</CardTitle>
+            <CardDescription className="text-slate-400">Guardian phone verification & warden sign-off</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="border-b border-slate-200 dark:border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+                <thead className="border-b border-amber-500/20 text-amber-400/80 uppercase tracking-wider font-semibold">
                   <tr>
                     <th className="py-3 px-4">Pass ID</th>
                     <th className="py-3 px-4">Resident</th>
@@ -103,30 +106,30 @@ export default function AdminGatePassesPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                <tbody className="divide-y divide-amber-500/10">
                   {passes.map((p) => (
-                    <tr key={p.id}>
-                      <td className="py-3.5 px-4 font-mono font-bold text-slate-900 dark:text-slate-100">{p.id}</td>
+                    <tr key={p.id} className="hover:bg-slate-950/40">
+                      <td className="py-3.5 px-4 font-mono font-bold text-amber-400">{p.id}</td>
                       <td className="py-3.5 px-4">
-                        <span className="font-bold block">{p.residentName}</span>
+                        <span className="font-bold text-white block">{p.residentName}</span>
                         <span className="text-[10px] text-slate-400">{p.room}</span>
                       </td>
                       <td className="py-3.5 px-4"><Badge variant="outline">{p.type}</Badge></td>
-                      <td className="py-3.5 px-4">{p.destination}</td>
+                      <td className="py-3.5 px-4 text-slate-300">{p.destination}</td>
                       <td className="py-3.5 px-4">
-                        <span className="block text-slate-800 dark:text-slate-200">Out: {p.departure}</span>
+                        <span className="block text-white">Out: {p.departure}</span>
                         <span className="block text-[10px] text-slate-400">In: {p.expectedReturn}</span>
                       </td>
-                      <td className="py-3.5 px-4 font-mono">{p.guardianPhone}</td>
+                      <td className="py-3.5 px-4 font-mono text-amber-300">{p.guardianPhone}</td>
                       <td className="py-3.5 px-4">
-                        <Badge variant={p.status === "APPROVED" ? "emerald" : p.status === "PENDING" ? "gold" : "destructive"}>
+                        <Badge variant={p.status === "APPROVED" ? "gold" : p.status === "PENDING" ? "outline" : "destructive"}>
                           {p.status}
                         </Badge>
                       </td>
                       <td className="py-3.5 px-4 text-right space-x-2">
                         {p.status === "PENDING" && (
                           <>
-                            <Button onClick={() => handleApprove(p.id)} variant="emerald" size="sm" className="text-[10px]">
+                            <Button onClick={() => handleApprove(p.id)} size="sm" className="text-[10px] font-bold bg-amber-500 text-slate-950 hover:bg-amber-400">
                               Approve
                             </Button>
                             <Button onClick={() => handleReject(p.id)} variant="destructive" size="sm" className="text-[10px]">

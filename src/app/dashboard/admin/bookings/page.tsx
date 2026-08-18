@@ -6,7 +6,7 @@ import { formatPKR } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarCheck, Check, X, FileText, Printer } from "lucide-react";
+import { CalendarCheck, Check, X, FileText, Printer, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 interface AdminBooking {
@@ -64,55 +64,58 @@ export default function AdminBookingsPage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <AdminSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/20 pb-6">
           <div>
-            <Badge variant="gold">Reservations Desk</Badge>
-            <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              Reservations Desk
+            </span>
+            <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
               Bookings & Invoice Approvals
             </h1>
-            <p className="text-xs text-slate-500">Review student applications, issue receipts, and check-in residents</p>
+            <p className="text-xs text-slate-400">Review student applications, issue receipts, and check-in residents</p>
           </div>
         </div>
 
         {/* Invoice Modal */}
         {selectedInvoice && (
-          <Card className="border-emerald-800/30 shadow-2xl p-6 space-y-4 max-w-lg mx-auto bg-white dark:bg-slate-900">
-            <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+          <Card className="border-amber-500/35 shadow-2xl p-6 space-y-4 max-w-lg mx-auto bg-[#0c0c10]">
+            <div className="flex justify-between items-center border-b border-amber-500/20 pb-3">
               <div>
-                <Badge variant="emerald">Hostel Official Invoice</Badge>
-                <h3 className="font-bold font-serif text-lg text-slate-900 dark:text-slate-100 mt-1">
+                <Badge variant="gold">Hostel Official Invoice</Badge>
+                <h3 className="font-bold font-serif text-lg text-white mt-1">
                   Invoice #{selectedInvoice.id}
                 </h3>
               </div>
-              <Button variant="outline" size="sm" onClick={() => setSelectedInvoice(null)}>Close</Button>
+              <Button variant="outline" size="sm" onClick={() => setSelectedInvoice(null)} className="border-amber-500/30 text-amber-300">Close</Button>
             </div>
-            <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-              <div className="flex justify-between py-1 border-b border-slate-100">
+            <div className="space-y-2 text-xs text-slate-300">
+              <div className="flex justify-between py-1 border-b border-amber-500/10">
                 <span>Resident Name:</span>
-                <span className="font-bold text-slate-900 dark:text-white">{selectedInvoice.residentName}</span>
+                <span className="font-bold text-white">{selectedInvoice.residentName}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-slate-100">
+              <div className="flex justify-between py-1 border-b border-amber-500/10">
                 <span>CNIC Number:</span>
                 <span>{selectedInvoice.cnic}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-slate-100">
+              <div className="flex justify-between py-1 border-b border-amber-500/10">
                 <span>Room Assigned:</span>
-                <span>{selectedInvoice.roomTitle}</span>
+                <span className="text-amber-300 font-bold">{selectedInvoice.roomTitle}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-slate-100">
+              <div className="flex justify-between py-1 border-b border-amber-500/10">
                 <span>Stay Duration:</span>
                 <span>{selectedInvoice.durationMonths} Months (Check-in: {selectedInvoice.checkIn})</span>
               </div>
-              <div className="flex justify-between py-2 text-sm font-extrabold text-emerald-900 dark:text-emerald-400">
+              <div className="flex justify-between py-2 text-sm font-black text-amber-400 font-mono">
                 <span>Total Amount Paid:</span>
                 <span>{formatPKR(selectedInvoice.totalPKR)}</span>
               </div>
             </div>
-            <Button onClick={() => window.print()} variant="gold" className="w-full font-semibold text-xs">
+            <Button onClick={() => window.print()} className="w-full font-black text-xs bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950">
               <Printer className="w-4 h-4 mr-2" />
               Print Official Invoice Receipt
             </Button>
@@ -120,14 +123,14 @@ export default function AdminBookingsPage() {
         )}
 
         {/* Bookings Table */}
-        <Card className="border-slate-200 dark:border-slate-800">
+        <Card className="border-amber-500/25 bg-[#0c0c10]">
           <CardHeader>
-            <CardTitle className="text-base font-serif">All Reservations List</CardTitle>
+            <CardTitle className="text-base font-serif text-white">All Reservations List</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="border-b border-slate-200 dark:border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+                <thead className="border-b border-amber-500/20 text-amber-400/80 uppercase tracking-wider font-semibold">
                   <tr>
                     <th className="py-3 px-4">Ref #</th>
                     <th className="py-3 px-4">Resident</th>
@@ -139,22 +142,22 @@ export default function AdminBookingsPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                <tbody className="divide-y divide-amber-500/10">
                   {bookings.map((b) => (
-                    <tr key={b.id}>
-                      <td className="py-3.5 px-4 font-mono font-bold text-slate-900 dark:text-slate-100">{b.id}</td>
-                      <td className="py-3.5 px-4 font-medium text-slate-800 dark:text-slate-200">{b.residentName}</td>
-                      <td className="py-3.5 px-4">{b.cnic}</td>
-                      <td className="py-3.5 px-4">{b.roomTitle}</td>
-                      <td className="py-3.5 px-4">{b.checkIn}</td>
-                      <td className="py-3.5 px-4 font-bold text-emerald-800 dark:text-emerald-400">{formatPKR(b.totalPKR)}</td>
+                    <tr key={b.id} className="hover:bg-slate-950/40">
+                      <td className="py-3.5 px-4 font-mono font-bold text-amber-400">{b.id}</td>
+                      <td className="py-3.5 px-4 font-medium text-white">{b.residentName}</td>
+                      <td className="py-3.5 px-4 text-slate-400">{b.cnic}</td>
+                      <td className="py-3.5 px-4 text-slate-300">{b.roomTitle}</td>
+                      <td className="py-3.5 px-4 text-slate-400">{b.checkIn}</td>
+                      <td className="py-3.5 px-4 font-black text-amber-400 font-mono">{formatPKR(b.totalPKR)}</td>
                       <td className="py-3.5 px-4">
                         <Badge
                           variant={
                             b.status === "CONFIRMED"
-                              ? "emerald"
-                              : b.status === "CHECKED_IN"
                               ? "gold"
+                              : b.status === "CHECKED_IN"
+                              ? "outline"
                               : b.status === "PENDING"
                               ? "secondary"
                               : "destructive"
@@ -164,12 +167,12 @@ export default function AdminBookingsPage() {
                         </Badge>
                       </td>
                       <td className="py-3.5 px-4 text-right space-x-2">
-                        <Button onClick={() => setSelectedInvoice(b)} variant="outline" size="sm" className="text-[10px]">
+                        <Button onClick={() => setSelectedInvoice(b)} variant="outline" size="sm" className="text-[10px] border-amber-500/30 text-amber-300">
                           Invoice
                         </Button>
                         {b.status === "PENDING" && (
                           <>
-                            <Button onClick={() => handleStatusChange(b.id, "CONFIRMED")} variant="emerald" size="sm" className="text-[10px]">
+                            <Button onClick={() => handleStatusChange(b.id, "CONFIRMED")} size="sm" className="text-[10px] font-bold bg-amber-500 text-slate-950 hover:bg-amber-400">
                               Approve
                             </Button>
                             <Button onClick={() => handleStatusChange(b.id, "REJECTED")} variant="destructive" size="sm" className="text-[10px]">
@@ -178,7 +181,7 @@ export default function AdminBookingsPage() {
                           </>
                         )}
                         {b.status === "CONFIRMED" && (
-                          <Button onClick={() => handleStatusChange(b.id, "CHECKED_IN")} variant="gold" size="sm" className="text-[10px]">
+                          <Button onClick={() => handleStatusChange(b.id, "CHECKED_IN")} size="sm" className="text-[10px] font-bold bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950">
                             Check-in
                           </Button>
                         )}

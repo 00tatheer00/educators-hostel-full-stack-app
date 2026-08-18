@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Wrench, Plus, CheckCircle2, Clock } from "lucide-react";
+import { Wrench, Plus, CheckCircle2, Clock, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 interface ResidentTicket {
@@ -58,34 +58,37 @@ export default function ResidentMaintenancePage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-5rem)]">
+    <div className="flex min-h-[calc(100vh-5rem)] bg-[#070709] text-slate-100">
       <ResidentSidebar />
 
       <main className="flex-grow p-6 sm:p-10 space-y-8 overflow-y-auto">
-        <div className="border-b border-slate-200 dark:border-slate-800 pb-6">
-          <Badge variant="emerald">Helpdesk</Badge>
-          <h1 className="text-3xl font-extrabold font-serif text-slate-900 dark:text-slate-100 mt-1">
+        <div className="border-b border-amber-500/20 pb-6">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+            <Crown className="w-3.5 h-3.5 text-amber-400" />
+            Helpdesk
+          </span>
+          <h1 className="text-3xl font-extrabold font-serif text-white mt-2">
             Maintenance & Repairs
           </h1>
-          <p className="text-xs text-slate-500">Report room issues (AC, Plumbing, Wi-Fi, Electrical) to female staff</p>
+          <p className="text-xs text-slate-400">Report room issues (AC, Plumbing, Wi-Fi, Electrical) to female staff</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Submit Form */}
           <div className="lg:col-span-5">
-            <Card className="border-slate-200 dark:border-slate-800 shadow-xl">
+            <Card className="border-amber-500/25 shadow-xl bg-[#0c0c10]">
               <CardHeader>
-                <CardTitle className="text-lg font-serif">Submit Maintenance Ticket</CardTitle>
-                <CardDescription>Female housekeeping team will address within 24h</CardDescription>
+                <CardTitle className="text-lg font-serif text-white">Submit Maintenance Ticket</CardTitle>
+                <CardDescription className="text-slate-400">Female housekeeping team will address within 24h</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                   <div className="space-y-1.5">
-                    <label className="font-semibold">Issue Category</label>
+                    <label className="font-semibold text-slate-300">Issue Category</label>
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full h-11 rounded-xl border border-input bg-background px-3 text-xs"
+                      className="w-full h-11 rounded-xl border border-amber-500/30 bg-slate-950 px-3 text-xs text-white"
                     >
                       <option value="AIR_CONDITIONER">Air Conditioner / Heating</option>
                       <option value="PLUMBING">Plumbing & Bathroom Tap</option>
@@ -96,21 +99,22 @@ export default function ResidentMaintenancePage() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-semibold">Issue Title *</label>
+                    <label className="font-semibold text-slate-300">Issue Title *</label>
                     <Input
                       required
                       placeholder="e.g. Bathroom light bulb needs replacement"
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
+                      className="bg-slate-950 border-amber-500/30 text-white"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-semibold">Priority Level</label>
+                    <label className="font-semibold text-slate-300">Priority Level</label>
                     <select
                       value={priority}
                       onChange={(e) => setPriority(e.target.value)}
-                      className="w-full h-11 rounded-xl border border-input bg-background px-3 text-xs"
+                      className="w-full h-11 rounded-xl border border-amber-500/30 bg-slate-950 px-3 text-xs text-white"
                     >
                       <option value="LOW">Low</option>
                       <option value="MEDIUM">Medium</option>
@@ -120,19 +124,19 @@ export default function ResidentMaintenancePage() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-semibold">Detailed Description *</label>
+                    <label className="font-semibold text-slate-300">Detailed Description *</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Describe the issue and preferred room entry time..."
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      className="w-full rounded-xl border border-input bg-background p-3 text-xs focus-visible:ring-2 focus-visible:ring-emerald-700"
+                      className="w-full rounded-xl border border-amber-500/30 bg-slate-950 p-3 text-xs text-white focus-visible:ring-2 focus-visible:ring-amber-500"
                     />
                   </div>
 
-                  <Button type="submit" variant="emerald" className="w-full font-semibold h-11">
-                    <Wrench className="w-4 h-4 mr-1.5" />
+                  <Button type="submit" className="w-full font-black h-11 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400">
+                    <Wrench className="w-4 h-4 mr-1.5 text-slate-950" />
                     Submit Maintenance Ticket
                   </Button>
                 </form>
@@ -142,24 +146,24 @@ export default function ResidentMaintenancePage() {
 
           {/* Ticket History */}
           <div className="lg:col-span-7 space-y-4">
-            <Card className="border-slate-200 dark:border-slate-800">
+            <Card className="border-amber-500/25 bg-[#0c0c10]">
               <CardHeader>
-                <CardTitle className="text-base font-serif">My Active & Past Tickets</CardTitle>
+                <CardTitle className="text-base font-serif text-white">My Active & Past Tickets</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {tickets.map((t) => (
-                  <div key={t.id} className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 space-y-2 text-xs">
+                  <div key={t.id} className="p-4 rounded-xl border border-amber-500/20 bg-slate-950 space-y-2 text-xs">
                     <div className="flex justify-between items-center">
                       <div>
                         <Badge variant="outline">{t.category}</Badge>
-                        <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100 mt-1">{t.title}</h4>
+                        <h4 className="font-bold text-sm text-white mt-1">{t.title}</h4>
                       </div>
-                      <Badge variant={t.status === "OPEN" ? "gold" : "emerald"}>
+                      <Badge variant={t.status === "OPEN" ? "gold" : "outline"}>
                         {t.status}
                       </Badge>
                     </div>
-                    <p className="text-slate-600 dark:text-slate-300">{t.description}</p>
-                    <span className="text-[10px] text-slate-400 block pt-1">Submitted on: {t.date}</span>
+                    <p className="text-slate-300">{t.description}</p>
+                    <span className="text-[10px] text-slate-500 block pt-1">Submitted on: {t.date}</span>
                   </div>
                 ))}
               </CardContent>

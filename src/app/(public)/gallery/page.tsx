@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LightboxModal, GalleryItem } from "@/components/gallery/LightboxModal";
-import { Maximize2, Camera, Sparkles } from "lucide-react";
+import { Maximize2, Camera, Sparkles, Crown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { SquiggleWave, PolkaDotGrid, CapsulePillBar, RotatingBadgeRing } from "@/components/decorative/DoodleVectors";
 
@@ -86,22 +86,23 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
-      {/* Saturated Banner */}
-      <section className="relative bg-gradient-to-r from-pink-950 via-slate-950 to-indigo-950 text-white py-20 px-4 sm:px-8 overflow-hidden">
-        <div className="absolute top-6 right-8 opacity-70 hidden md:block">
-          <SquiggleWave color="#FF1E7A" width={140} height={28} />
+    <div className="min-h-screen bg-[#070709] text-slate-100">
+      {/* Luxury Black & Gold Header Banner */}
+      <section className="relative bg-gradient-to-r from-[#0d0d12] via-[#171410] to-[#0a0a0e] text-white py-20 px-4 sm:px-8 overflow-hidden border-b border-amber-500/20">
+        <div className="absolute top-6 right-8 opacity-60 hidden md:block">
+          <SquiggleWave color="#d4af37" width={140} height={28} />
         </div>
-        <div className="absolute bottom-6 left-8 opacity-60 hidden md:block">
-          <CapsulePillBar color="from-pink-500 to-indigo-500" width="w-28" height="h-4" rotate="-rotate-12" />
+        <div className="absolute bottom-6 left-8 opacity-40 hidden md:block">
+          <CapsulePillBar color="from-amber-500 to-yellow-500" width="w-28" height="h-4" rotate="-rotate-12" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-pink-500/20 text-pink-300 font-extrabold text-xs uppercase tracking-wider border border-pink-400/40">
-            ★ Visual Gallery
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-300 font-extrabold text-xs uppercase tracking-wider border border-amber-400/40">
+            <Crown className="w-3.5 h-3.5 text-amber-400" />
+            Visual Gallery
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight">
-            Photo Gallery & <span className="text-gradient-pink">Virtual Tour</span>
+          <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight text-white">
+            Photo Gallery & <span className="text-gradient-gold-pure">Virtual Tour</span>
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Explore our executive bedrooms, study lounges, mess dining hall, and 24/7 security infrastructure on University Road, Peshawar.
@@ -122,10 +123,10 @@ export default function GalleryPage() {
             <button
               key={tab.id}
               onClick={() => setActiveCategory(tab.id)}
-              className={`px-5 py-2.5 rounded-2xl text-xs font-black transition-all ${
+              className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all ${
                 activeCategory === tab.id
-                  ? "bg-gradient-to-r from-pink-500 to-indigo-600 text-white shadow-xl shadow-pink-500/30 scale-105"
-                  : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 border border-slate-200 dark:border-slate-700"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black shadow-xl shadow-amber-500/25 scale-105"
+                  : "bg-slate-950 text-slate-300 hover:border-amber-400/50 border border-amber-500/20"
               }`}
             >
               {tab.label}
@@ -139,23 +140,23 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => openLightbox(idx)}
-              className="group relative h-72 rounded-3xl overflow-hidden shadow-xl cursor-pointer border-2 border-slate-200 dark:border-slate-800 bg-slate-900 hover:-translate-y-1.5 transition-all duration-300"
+              className="group relative h-72 rounded-3xl overflow-hidden shadow-xl cursor-pointer border border-amber-500/25 bg-slate-950 hover:border-amber-400/60 hover:-translate-y-1.5 transition-all duration-300"
             >
               <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                 <div className="flex justify-between items-end">
                   <div className="space-y-1">
-                    <span className="px-2.5 py-0.5 rounded-full bg-pink-600 text-white font-bold text-[10px] uppercase">
+                    <span className="px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950 font-bold text-[10px] uppercase">
                       {item.category}
                     </span>
-                    <h3 className="font-bold text-lg font-serif">{item.title}</h3>
+                    <h3 className="font-bold text-lg font-serif text-white">{item.title}</h3>
                     <p className="text-xs text-slate-300 line-clamp-1">{item.description}</p>
                   </div>
-                  <div className="w-9 h-9 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-pink-600 transition-all shadow-md">
+                  <div className="w-9 h-9 rounded-2xl bg-black/60 border border-amber-500/40 backdrop-blur-md flex items-center justify-center text-amber-300 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all shadow-md">
                     <Maximize2 className="w-4 h-4" />
                   </div>
                 </div>

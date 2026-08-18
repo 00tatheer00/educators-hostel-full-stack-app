@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bed, CalendarCheck, CreditCard, Wrench, ShieldCheck, User, LogOut } from "lucide-react";
+import { Bed, CalendarCheck, CreditCard, Wrench, ShieldCheck, User, LogOut, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function ResidentSidebar() {
@@ -18,11 +18,11 @@ export function ResidentSidebar() {
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 min-h-[calc(100vh-5rem)] p-4 space-y-6 flex flex-col justify-between shrink-0">
+    <aside className="w-64 border-r border-amber-500/20 bg-[#0c0c10] min-h-[calc(100vh-5rem)] p-4 space-y-6 flex flex-col justify-between shrink-0">
       <div className="space-y-6">
-        <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800">
-          <Badge variant="emerald" className="text-[10px]">Resident Portal</Badge>
-          <h2 className="font-bold font-serif text-sm text-slate-900 dark:text-slate-100 mt-1">
+        <div className="px-3 py-2 border-b border-amber-500/15">
+          <Badge variant="gold" className="text-[10px]">Resident Portal</Badge>
+          <h2 className="font-bold font-serif text-sm text-white mt-1">
             Fatima Khan (Room 204)
           </h2>
         </div>
@@ -36,18 +36,18 @@ export function ResidentSidebar() {
                 href={item.href}
                 className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                   isActive
-                    ? "bg-emerald-900 text-white shadow-md shadow-emerald-900/20"
-                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black shadow-md shadow-amber-500/20"
+                    : "text-slate-300 hover:text-amber-300 hover:bg-slate-950/80"
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <item.icon className={`w-4 h-4 ${isActive ? "text-amber-400" : "text-slate-500"}`} />
+                  <item.icon className={`w-4 h-4 ${isActive ? "text-slate-950" : "text-amber-400"}`} />
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
-                  <Badge variant={isActive ? "gold" : "secondary"} className="text-[9px] px-1.5 py-0">
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold ${isActive ? "bg-slate-950 text-amber-300" : "bg-amber-500/20 text-amber-300 border border-amber-500/30"}`}>
                     {item.badge}
-                  </Badge>
+                  </span>
                 )}
               </Link>
             );
@@ -55,8 +55,8 @@ export function ResidentSidebar() {
         </nav>
       </div>
 
-      <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-        <Link href="/" className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition">
+      <div className="pt-4 border-t border-amber-500/15">
+        <Link href="/" className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-amber-400 hover:bg-amber-500/10 rounded-xl transition">
           <LogOut className="w-4 h-4" />
           <span>Exit to Main Site</span>
         </Link>

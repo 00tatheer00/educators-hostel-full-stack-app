@@ -3,11 +3,11 @@
 import React from "react";
 
 /**
- * Animated Squiggle Wavy Line (Inspired by vibrant modern vector graphics)
+ * Animated Squiggle Wavy Line (Imperial Gold)
  */
 export function SquiggleWave({
   className = "",
-  color = "#FF1E7A",
+  color = "#d4af37",
   width = 120,
   height = 24,
 }: {
@@ -37,11 +37,11 @@ export function SquiggleWave({
 }
 
 /**
- * Diagonal Capsule Pill Bars (Speed Stripes)
+ * Diagonal Capsule Pill Bars (Speed Gold Stripes)
  */
 export function CapsulePillBar({
   className = "",
-  color = "from-pink-500 to-rose-500",
+  color = "from-amber-500 to-amber-600",
   width = "w-28",
   height = "h-5",
   rotate = "-rotate-45",
@@ -60,13 +60,13 @@ export function CapsulePillBar({
 }
 
 /**
- * Polka Dot Matrix Pattern
+ * Polka Dot Matrix Pattern (Gold Dust Grid)
  */
 export function PolkaDotGrid({
   className = "",
   rows = 4,
   cols = 6,
-  dotColor = "bg-indigo-500/30",
+  dotColor = "bg-amber-400/30",
 }: {
   className?: string;
   rows?: number;
@@ -93,7 +93,7 @@ export function PolkaDotGrid({
  */
 export function TargetRings({
   className = "",
-  color = "border-pink-500",
+  color = "border-amber-400/60",
 }: {
   className?: string;
   color?: string;
@@ -102,26 +102,26 @@ export function TargetRings({
     <div className={`relative flex items-center justify-center pointer-events-none ${className}`}>
       <div className={`w-16 h-16 rounded-full border-2 ${color} opacity-40`} />
       <div className={`absolute w-10 h-10 rounded-full border-2 ${color} opacity-70`} />
-      <div className={`absolute w-4 h-4 rounded-full bg-current`} />
+      <div className={`absolute w-4 h-4 rounded-full bg-amber-400`} />
     </div>
   );
 }
 
 /**
- * Starbursts & Plus/Cross Marks
+ * Starbursts & Plus/Cross Marks (Gold Accents)
  */
 export function DoodleCrossMarks({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-3 text-pink-500 font-bold pointer-events-none ${className}`}>
+    <div className={`flex items-center gap-3 text-amber-400 font-bold pointer-events-none ${className}`}>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
         <line x1="12" y1="4" x2="12" y2="20" />
         <line x1="4" y1="12" x2="20" y2="12" />
       </svg>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-indigo-500 rotate-45">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-yellow-300 rotate-45">
         <line x1="12" y1="4" x2="12" y2="20" />
         <line x1="4" y1="12" x2="20" y2="12" />
       </svg>
-      <span className="text-amber-400 text-xl select-none">✦</span>
+      <span className="text-amber-300 text-xl select-none">✦</span>
     </div>
   );
 }
@@ -130,7 +130,7 @@ export function DoodleCrossMarks({ className = "" }: { className?: string }) {
  * Rotating Circular Badge Ring with Curved Text
  */
 export function RotatingBadgeRing({
-  text = "★ EDUCATOR GIRLS HOSTEL ★ LUXURY RESIDENCE ★",
+  text = "★ EDUCATOR GIRLS HOSTEL ★ LUXURY LIVING ★",
   className = "",
   size = 110,
 }: {
@@ -153,13 +153,13 @@ export function RotatingBadgeRing({
           d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
           fill="transparent"
         />
-        <text className="text-[8.5px] font-black uppercase tracking-[0.22em] fill-pink-500 dark:fill-pink-400">
+        <text className="text-[8.5px] font-black uppercase tracking-[0.22em] fill-amber-400">
           <textPath href="#circlePath" startOffset="0%">
             {text}
           </textPath>
         </text>
       </svg>
-      <div className="absolute w-8 h-8 rounded-full bg-gradient-to-tr from-pink-500 to-indigo-600 flex items-center justify-center text-white text-xs font-black shadow-lg">
+      <div className="absolute w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 flex items-center justify-center text-slate-950 text-xs font-black shadow-lg shadow-amber-500/30">
         ✦
       </div>
     </div>
@@ -167,19 +167,16 @@ export function RotatingBadgeRing({
 }
 
 /**
- * Hand-Drawn Style Line Doodles (Desk Lamp, Bookshelf, Plant, Camera, Clock)
+ * Hand-Drawn Style Line Doodles (Gold Strokes)
  */
-export function StudyLampDoodle({ className = "", stroke = "#4F46E5" }: { className?: string; stroke?: string }) {
+export function StudyLampDoodle({ className = "", stroke = "#d4af37" }: { className?: string; stroke?: string }) {
   return (
     <svg width="60" height="90" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      {/* Light Rays */}
       <line x1="12" y1="12" x2="6" y2="4" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 3" />
       <line x1="30" y1="8" x2="30" y2="2" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 3" />
       <line x1="48" y1="12" x2="54" y2="4" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 3" />
-      {/* Lamp Head */}
       <path d="M12 28 C14 16, 46 16, 48 28 Z" fill="none" stroke={stroke} strokeWidth="3" strokeLinejoin="round" />
       <path d="M20 28 L40 28" stroke={stroke} strokeWidth="2.5" />
-      {/* Lamp Stand Tripod */}
       <line x1="30" y1="28" x2="30" y2="55" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
       <line x1="30" y1="55" x2="10" y2="86" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
       <line x1="30" y1="55" x2="50" y2="86" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
@@ -188,37 +185,28 @@ export function StudyLampDoodle({ className = "", stroke = "#4F46E5" }: { classN
   );
 }
 
-export function BookshelfDoodle({ className = "", stroke = "#10B981" }: { className?: string; stroke?: string }) {
+export function BookshelfDoodle({ className = "", stroke = "#d4af37" }: { className?: string; stroke?: string }) {
   return (
     <svg width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      {/* Shelf line */}
       <line x1="5" y1="44" x2="115" y2="44" stroke={stroke} strokeWidth="3.5" strokeLinecap="round" />
-      {/* Books standing */}
       <rect x="18" y="14" width="10" height="30" rx="2" stroke={stroke} strokeWidth="2.5" />
       <rect x="31" y="8" width="12" height="36" rx="2" stroke={stroke} strokeWidth="2.5" />
       <rect x="46" y="18" width="9" height="26" rx="2" stroke={stroke} strokeWidth="2.5" />
-      {/* Leaning Book */}
       <path d="M58 44 L70 18 L79 22 L67 44 Z" stroke={stroke} strokeWidth="2.5" strokeLinejoin="round" />
-      {/* Photo frame on shelf */}
       <rect x="86" y="12" width="22" height="32" rx="3" stroke={stroke} strokeWidth="2.5" />
       <circle cx="97" cy="24" r="5" stroke={stroke} strokeWidth="2" />
     </svg>
   );
 }
 
-export function CactusPlantDoodle({ className = "", stroke = "#06B6D4" }: { className?: string; stroke?: string }) {
+export function CactusPlantDoodle({ className = "", stroke = "#d4af37" }: { className?: string; stroke?: string }) {
   return (
     <svg width="50" height="60" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      {/* Pot */}
       <path d="M12 36 L15 54 C15 56 35 56 35 54 L38 36 Z" stroke={stroke} strokeWidth="2.5" strokeLinejoin="round" />
       <line x1="10" y1="36" x2="40" y2="36" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
-      {/* Cactus Body */}
       <path d="M25 10 C21 10 21 36 21 36 L29 36 C29 36 29 10 25 10 Z" stroke={stroke} strokeWidth="2.5" />
-      {/* Left arm */}
       <path d="M21 24 H14 C12 24 12 16 12 16" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Right arm */}
       <path d="M29 28 H36 C38 28 38 20 38 20" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Spikes */}
       <line x1="23" y1="16" x2="27" y2="16" stroke={stroke} strokeWidth="2" />
       <line x1="23" y1="24" x2="27" y2="24" stroke={stroke} strokeWidth="2" />
     </svg>
@@ -226,12 +214,12 @@ export function CactusPlantDoodle({ className = "", stroke = "#06B6D4" }: { clas
 }
 
 /**
- * Organic Wave Dividers
+ * Organic Wave Dividers (Black & Gold)
  */
 export function MultiLayerWaveTop({
-  colorTop = "#4F46E5",
-  colorMid = "#FF1E7A",
-  colorBottom = "#0f172a",
+  colorTop = "#d4af37",
+  colorMid = "#92400e",
+  colorBottom = "#070709",
   className = "",
 }: {
   colorTop?: string;
@@ -248,19 +236,16 @@ export function MultiLayerWaveTop({
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Layer 1 */}
         <path
           d="M0 40C240 100 480 0 720 50C960 100 1200 20 1440 60V120H0V40Z"
           fill={colorTop}
-          fillOpacity="0.25"
+          fillOpacity="0.15"
         />
-        {/* Layer 2 */}
         <path
           d="M0 65C300 10 600 110 900 45C1200 -20 1350 80 1440 70V120H0V65Z"
           fill={colorMid}
-          fillOpacity="0.5"
+          fillOpacity="0.3"
         />
-        {/* Main Solid Layer */}
         <path
           d="M0 90C360 30 720 120 1080 60C1260 30 1380 90 1440 85V120H0V90Z"
           fill={colorBottom}
@@ -271,9 +256,9 @@ export function MultiLayerWaveTop({
 }
 
 export function MultiLayerWaveBottom({
-  colorTop = "#0f172a",
-  colorMid = "#FF1E7A",
-  colorBottom = "#ffffff",
+  colorTop = "#070709",
+  colorMid = "#d4af37",
+  colorBottom = "#0c0c10",
   className = "",
 }: {
   colorTop?: string;
@@ -290,15 +275,12 @@ export function MultiLayerWaveBottom({
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Solid Top Backing */}
         <rect width="1440" height="120" fill={colorTop} />
-        {/* Layer 1 Wave */}
         <path
           d="M0 30C320 90 640 10 960 80C1280 150 1380 30 1440 40V120H0V30Z"
           fill={colorMid}
-          fillOpacity="0.4"
+          fillOpacity="0.25"
         />
-        {/* Layer 2 Main Wave */}
         <path
           d="M0 60C280 10 560 100 840 40C1120 -20 1320 80 1440 70V120H0V60Z"
           fill={colorBottom}
@@ -309,7 +291,7 @@ export function MultiLayerWaveBottom({
 }
 
 /**
- * Royal Architectural Arches & Oriental Lattice Silhouette (Option 2)
+ * Royal Architectural Arches & Oriental Lattice Silhouette (Imperial Gold)
  */
 export function ArchitecturalLuxuryArches({ className = "" }: { className?: string }) {
   return (
@@ -328,26 +310,23 @@ export function ArchitecturalLuxuryArches({ className = "" }: { className?: stri
             <stop offset="100%" stopColor="#d97706" stopOpacity="0.05" />
           </linearGradient>
           <linearGradient id="rubyArchGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#d4af37" stopOpacity="0.05" />
           </linearGradient>
         </defs>
 
-        {/* Outer Left Grand Arch */}
         <path
           d="M-80 700 V 320 C -80 140, 60 40, 260 40 C 460 40, 600 140, 600 320 V 700"
           stroke="url(#goldArchGrad)"
           strokeWidth="1.5"
           strokeDasharray="4 4"
         />
-        {/* Inner Left Pointed Arch */}
         <path
           d="M-20 700 V 350 C -20 200, 100 100, 260 100 C 420 100, 540 200, 540 350 V 700"
           stroke="url(#goldArchGrad)"
           strokeWidth="2"
         />
 
-        {/* Center Portal Arch Silhouette */}
         <path
           d="M380 700 V 220 C 380 60, 520 -10, 720 -10 C 920 -10, 1060 60, 1060 220 V 700"
           stroke="url(#rubyArchGrad)"
@@ -360,21 +339,18 @@ export function ArchitecturalLuxuryArches({ className = "" }: { className?: stri
           strokeDasharray="6 6"
         />
 
-        {/* Outer Right Grand Arch */}
         <path
           d="M840 700 V 320 C 840 140, 980 40, 1180 40 C 1380 40, 1520 140, 1520 320 V 700"
           stroke="url(#goldArchGrad)"
           strokeWidth="1.5"
           strokeDasharray="4 4"
         />
-        {/* Inner Right Pointed Arch */}
         <path
           d="M900 700 V 350 C 900 200, 1020 100, 1180 100 C 1340 100, 1460 200, 1460 350 V 700"
           stroke="url(#goldArchGrad)"
           strokeWidth="2"
         />
 
-        {/* Decorative Geometric Medallions / Octagons */}
         <circle cx="260" cy="100" r="18" stroke="url(#goldArchGrad)" strokeWidth="1.5" />
         <circle cx="720" cy="50" r="24" stroke="url(#goldArchGrad)" strokeWidth="2" />
         <circle cx="1180" cy="100" r="18" stroke="url(#goldArchGrad)" strokeWidth="1.5" />
@@ -382,4 +358,3 @@ export function ArchitecturalLuxuryArches({ className = "" }: { className?: stri
     </div>
   );
 }
-
