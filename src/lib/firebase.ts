@@ -4,12 +4,12 @@ import { getAuth, Auth } from "firebase/auth";
 import { getFirestore, Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyDummyKeyForEducatorGirlsHostel2026",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "educator-girls-hostel.firebaseapp.com",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "educator-girls-hostel",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "educator-girls-hostel.appspot.com",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "1029384756",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:1029384756:web:abcdef123456",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCvwnAJYd1l1n3CDp74jybhJiTzqGKFhvs",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "educators-hostel.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "educators-hostel",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "educators-hostel.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "723883027973",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:723883027973:web:f249904ed09dc4040e366c",
 };
 
 // Initialize Firebase singleton
@@ -22,8 +22,8 @@ try {
   auth = getAuth(app);
   db = getFirestore(app);
 } catch (error) {
-  console.warn("Firebase initialization note: using fallback client instance.", error);
-  app = initializeApp(firebaseConfig, "educator-hostel-client");
+  console.warn("Firebase initialization fallback instance:", error);
+  app = initializeApp(firebaseConfig, "educators-hostel-client");
   auth = getAuth(app);
   db = getFirestore(app);
 }
