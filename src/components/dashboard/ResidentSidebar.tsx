@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bed, CalendarCheck, CreditCard, Wrench, ShieldCheck, User, LogOut, Crown } from "lucide-react";
+import { Bed, CalendarCheck, CreditCard, Wrench, ShieldCheck, User, LogOut, UtensilsCrossed, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/common/Logo";
 
@@ -11,10 +11,11 @@ export function ResidentSidebar() {
 
   const menuItems = [
     { href: "/dashboard/resident", label: "My Room Overview", icon: Bed },
-    { href: "/dashboard/resident/bookings", label: "My Bookings & Stay", icon: CalendarCheck },
+    { href: "/dashboard/resident/mess-menu", label: "Mess & Food Menu", icon: UtensilsCrossed },
+    { href: "/dashboard/resident/gate-pass", label: "Request Gate Pass", icon: ShieldCheck },
+    { href: "/dashboard/resident/maintenance", label: "Lodge Complaint", icon: Wrench },
     { href: "/dashboard/resident/payments", label: "Rent & Payments", icon: CreditCard, badge: "Due" },
-    { href: "/dashboard/resident/maintenance", label: "Maintenance Requests", icon: Wrench },
-    { href: "/dashboard/resident/gate-pass", label: "Gate Pass Requests", icon: ShieldCheck },
+    { href: "/dashboard/resident/bookings", label: "My Bookings & Stay", icon: CalendarCheck },
     { href: "/dashboard/resident/profile", label: "Resident Profile", icon: User },
   ];
 

@@ -116,22 +116,34 @@ export function Navbar() {
           </div>
 
           {/* Right Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2.5">
-            <Link href="/login">
+          <div className="hidden sm:flex items-center gap-2">
+            <Link href="/student/login">
               <Button
                 variant="outline"
                 size="sm"
-                className="text-xs font-bold h-9 px-3.5 rounded-xl border-amber-500/30 text-slate-200 hover:text-amber-300 hover:border-amber-400/60 bg-black/40 transition-colors"
+                className="text-xs font-bold h-9 px-3 rounded-xl border-amber-500/30 text-slate-200 hover:text-amber-300 hover:border-amber-400/60 bg-black/40 transition-colors"
               >
                 <LogIn className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
-                {t("login") || "Resident Login"}
+                <span>Student Portal</span>
+              </Button>
+            </Link>
+
+            <Link href="/admin/login">
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-xs font-bold h-9 px-2.5 rounded-xl border-amber-500/20 text-amber-300/80 hover:text-amber-300 hover:border-amber-400/60 bg-amber-500/10 transition-colors"
+                title="Warden & Admin Control Desk"
+              >
+                <Crown className="w-3.5 h-3.5 mr-1 text-amber-400" />
+                <span className="hidden xl:inline">Admin</span>
               </Button>
             </Link>
 
             <Link href="/rooms">
               <Button
                 size="sm"
-                className="text-xs font-black h-9 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/25 active:scale-[0.98] transition-all"
+                className="text-xs font-black h-9 px-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/25 active:scale-[0.98] transition-all"
               >
                 <Bed className="w-3.5 h-3.5 mr-1.5" />
                 {t("bookNow") || "Book a Room"}
@@ -190,16 +202,16 @@ export function Navbar() {
             })}
 
             <div className="pt-2 grid grid-cols-2 gap-2 border-t border-amber-500/20 mt-2">
-              <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/student/login" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="outline" size="sm" className="w-full text-xs font-bold h-9 rounded-xl border-amber-500/30 text-amber-300">
                   <LogIn className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
-                  {t("login") || "Login"}
+                  Student Portal
                 </Button>
               </Link>
-              <Link href="/rooms" onClick={() => setMobileMenuOpen(false)}>
-                <Button size="sm" className="w-full text-xs font-black h-9 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-sm">
-                  <Bed className="w-3.5 h-3.5 mr-1.5" />
-                  {t("bookNow") || "Book Room"}
+              <Link href="/admin/login" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="outline" size="sm" className="w-full text-xs font-bold h-9 rounded-xl border-amber-500/30 text-amber-300/90 bg-amber-500/10">
+                  <Crown className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
+                  Admin Desk
                 </Button>
               </Link>
             </div>

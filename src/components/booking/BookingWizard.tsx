@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { ROOMS_DATA, RoomItem } from "@/data/roomsData";
 import { formatPKR } from "@/lib/utils";
@@ -12,6 +12,7 @@ import { CheckCircle2, Calendar, CreditCard, ShieldCheck, User, Phone, FileText,
 import { toast } from "sonner";
 import { useLanguage } from "@/context/LanguageContext";
 import { Logo } from "@/components/common/Logo";
+import { subscribeToRooms, createBooking } from "@/lib/firestoreService";
 
 export function BookingWizard() {
   const searchParams = useSearchParams();
@@ -19,6 +20,17 @@ export function BookingWizard() {
 
   const { language, t } = useLanguage();
   const isUrdu = language === "ur";
+
+  const [rooms, setRooms] = useState<RoomItem[]>(ROOMS_DATA);
+
+  useEffect(() => {
+    const unsub = subscribeToRooms((liveRooms) => {
+      if (liveRooms && liveRooms.length > 0) {
+        setRooms(liveRooms);
+      }
+    });
+    return () => unsub();
+  }, []);
 
   // Step 1: Selected Room & Dates
   const [selectedRoomId, setSelectedRoomId] = useState(initialRoomId);
@@ -45,15 +57,16 @@ export function BookingWizard() {
   // Wizard state
   const [currentStep, setCurrentStep] = useState(1);
   const [bookingRef, setBookingRef] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const currentRoom = ROOMS_DATA.find((r) => r.id === selectedRoomId) || ROOMS_DATA[0];
+  const currentRoom = rooms.find((r) => r.id === selectedRoomId) || rooms[0] || ROOMS_DATA[0];
 
   // Financial Calculations
   const rentTotal = currentRoom.monthlyRentPKR * durationMonths;
   const securityDeposit = currentRoom.securityDepositPKR;
   const grandTotalPKR = rentTotal + securityDeposit;
 
-  const handleNextStep = (e: React.FormEvent) => {
+  const handleNextStep = async (e: React.FormEvent) => {
     e.preventDefault();
     if (currentStep === 1) {
       setCurrentStep(2);
@@ -64,10 +77,35 @@ export function BookingWizard() {
       }
       setCurrentStep(3);
     } else if (currentStep === 3) {
-      const ref = `EGH-${Math.floor(100000 + Math.random() * 900000)}`;
-      setBookingRef(ref);
-      setCurrentStep(4);
-      toast.success("Booking confirmed! Your reservation reference is " + ref);
+      setIsSubmitting(true);
+      try {
+        const ref = await createBooking({
+          residentName: formData.fullName,
+          email: formData.email || "resident@educatorhostel.pk",
+          phone: formData.phone,
+          cnic: formData.cnicNumber,
+          institution: formData.institution || "Student",
+          guardianName: formData.guardianName,
+          guardianPhone: formData.guardianPhone,
+          roomId: currentRoom.id,
+          roomTitle: currentRoom.title,
+          checkIn: checkInDate,
+          durationMonths,
+          monthlyRentPKR: currentRoom.monthlyRentPKR,
+          securityDepositPKR: currentRoom.securityDepositPKR,
+          totalPKR: grandTotalPKR,
+          paymentMethod,
+          status: "PENDING",
+        });
+
+        setBookingRef(ref);
+        setCurrentStep(4);
+        toast.success("Booking confirmed in real-time! Your reservation reference is " + ref);
+      } catch (err) {
+        toast.error("Booking error. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -113,7 +151,7 @@ export function BookingWizard() {
                 {isUrdu ? "کمرے کی قسم منتخب کریں:" : "Choose Room Category:"}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {ROOMS_DATA.map((room) => (
+                {rooms.map((room) => (
                   <div
                     key={room.id}
                     onClick={() => setSelectedRoomId(room.id)}

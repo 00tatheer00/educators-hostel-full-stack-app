@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ROOMS_DATA, RoomItem } from "@/data/roomsData";
 import { RoomCard } from "@/components/rooms/RoomCard";
 import { RoomFilters } from "@/components/rooms/RoomFilters";
@@ -8,10 +8,22 @@ import { Badge } from "@/components/ui/badge";
 import { Crown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { SquiggleWave, CapsulePillBar, PolkaDotGrid } from "@/components/decorative/DoodleVectors";
+import { subscribeToRooms } from "@/lib/firestoreService";
 
 export default function RoomsPage() {
   const { language, t } = useLanguage();
   const isUrdu = language === "ur";
+
+  const [rooms, setRooms] = useState<RoomItem[]>(ROOMS_DATA);
+
+  useEffect(() => {
+    const unsub = subscribeToRooms((liveRooms) => {
+      if (liveRooms && liveRooms.length > 0) {
+        setRooms(liveRooms);
+      }
+    });
+    return () => unsub();
+  }, []);
 
   // Filter States
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,7 +47,7 @@ export default function RoomsPage() {
   };
 
   // Filter Logic
-  const filteredRooms = ROOMS_DATA.filter((room) => {
+  const filteredRooms = rooms.filter((room) => {
     // 1. Room Type Category Filter
     if (roomTypeFilter !== "ALL" && room.roomType !== roomTypeFilter) {
       return false;
@@ -116,7 +128,7 @@ export default function RoomsPage() {
           <div className="lg:col-span-8 space-y-6">
             <div className="flex justify-between items-center text-xs text-slate-400 font-bold border-b border-amber-500/20 pb-3">
               <span>
-                {isUrdu ? "دستیاب کمرے:" : "Showing Accommodations:"} <span className="text-amber-300 font-bold">{filteredRooms.length}</span> of {ROOMS_DATA.length}
+                {isUrdu ? "دستیاب کمرے:" : "Showing Accommodations:"} <span className="text-amber-300 font-bold">{filteredRooms.length}</span> of {rooms.length}
               </span>
               <span className="text-amber-400">Main University Road, Peshawar</span>
             </div>

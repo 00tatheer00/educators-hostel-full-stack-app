@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Bed, CalendarCheck, Users, CreditCard, Wrench, ShieldCheck, UserCog, LogOut, ChevronRight, Crown } from "lucide-react";
+import { LayoutDashboard, Bed, CalendarCheck, Users, CreditCard, Wrench, ShieldCheck, UserCog, LogOut, UtensilsCrossed, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/common/Logo";
 
@@ -11,12 +11,13 @@ export function AdminSidebar() {
 
   const menuItems = [
     { href: "/dashboard/admin", label: "Overview", icon: LayoutDashboard },
-    { href: "/dashboard/admin/rooms", label: "Rooms Management", icon: Bed },
-    { href: "/dashboard/admin/bookings", label: "Bookings & Invoices", icon: CalendarCheck, badge: "3 New" },
+    { href: "/dashboard/admin/rooms", label: "Rooms (CRUD)", icon: Bed },
+    { href: "/dashboard/admin/bookings", label: "Live Bookings", icon: CalendarCheck, badge: "Live" },
     { href: "/dashboard/admin/residents", label: "Resident Directory", icon: Users },
+    { href: "/dashboard/admin/mess-menu", label: "Mess / Dining Menu", icon: UtensilsCrossed },
     { href: "/dashboard/admin/payments", label: "Payments & Finance", icon: CreditCard },
-    { href: "/dashboard/admin/maintenance", label: "Maintenance Tickets", icon: Wrench, badge: "3 Open" },
-    { href: "/dashboard/admin/gate-passes", label: "Gate Passes & Security", icon: ShieldCheck, badge: "6 Pending" },
+    { href: "/dashboard/admin/maintenance", label: "Maintenance Desk", icon: Wrench },
+    { href: "/dashboard/admin/gate-passes", label: "Gate Passes & Security", icon: ShieldCheck },
     { href: "/dashboard/admin/users", label: "Staff & Permissions", icon: UserCog },
   ];
 
